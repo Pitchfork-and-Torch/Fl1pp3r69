@@ -1,0 +1,18 @@
+# FL1PP3R69 Boot Animation Spec v2 (128x64 OLED, ~30fps)
+# Implemented in FAP splash (casefile_ops) + future firmware/patches/boot_anim.c
+
+FRAME 0-3   noise_burst       # TV static / phosphor snow
+FRAME 4     blank
+FRAME 5     scanline_tear     # full-width horizontal bars (1 frame glitch)
+FRAME 6-8   text_slide_left   # "FL1PP3R" from x=-40 → x=4
+FRAME 9     glitch_cut        # second tear
+FRAME 10-12 text_flicker      # "69" big numbers settle
+FRAME 13    blood_rule        # y=28 horizontal rule
+FRAME 14-16 classification    # UNCLASSIFIED//FRI
+FRAME 17-19 version_line      # VER=2.0.0  CASEFILE OPS
+FRAME 20-22 tagline_blink     # "the dolphin grew teeth"
+FRAME 12+   viper_eye         # 8×6 frame + horizontal slit (top-right)
+
+SOUND: optional sub-bass hit frame 8 (firmware speaker patch)
+DURATION: ~1.5 seconds total
+EXIT: CASEFILE Ops menu

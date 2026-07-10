@@ -1,0 +1,9 @@
+{
+  "firmware": "flipper69",
+  "version": "2.0.0",
+  "updatedAt": "2026-07-08T00:00:00Z",
+  "operations": [
+    "op-20260706-flipper69-demo",
+    "op-20260708-sim_v2-polish-00339828"
+  ]
+}

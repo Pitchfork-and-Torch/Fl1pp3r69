@@ -1,0 +1,14 @@
+App(
+    appid="flipper69_probe_nfc",
+    name="DEWDROP",
+    apptype=FlipperAppType.EXTERNAL,
+    entry_point="probe_nfc_main",
+    requires=["storage", "gui"],
+    stack_size=6 * 1024,
+    order=11,
+    fap_version="2.0",
+    fap_description="Fl1pp3r69 DEWDROP — NFC read/write/emulate with CASEFILE .meta.json sidecars",
+    fap_author="Fl1pp3r69",
+    fap_category="NFC",
+    fap_libs=["nfc", "mbedtls"],
+)

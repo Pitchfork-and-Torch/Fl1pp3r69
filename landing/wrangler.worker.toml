@@ -1,0 +1,13 @@
+name = "fl1pp3r69-site"
+compatibility_date = "2026-07-01"
+workers_dev = true
+account_id = "75c71da18eeb801b3408c812742d6590"
+
+[assets]
+directory = "."
+not_found_handling = "single-page-application"
+
+# Custom hostname on the jonbailey.xyz zone (creates DNS when permitted)
+[[routes]]
+pattern = "fl1pp3r69.jonbailey.xyz"
+custom_domain = true

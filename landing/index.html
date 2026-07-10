@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Fl1pp3r69 — manifest-driven Flipper Zero field ops. Momentum base, CASEFILE discipline, SHA-256 chain-of-custody from pocket to desktop. Open source." />
+  <meta name="robots" content="index, follow, max-image-preview:large" />
+  <meta name="keywords" content="Fl1pp3r69, Flipper Zero, CASEFILE, field ops, Momentum firmware, NFC, SubGHz, open source, Pitchfork-and-Torch" />
+  <meta name="author" content="Pitchfork-and-Torch" />
+  <meta name="theme-color" content="#0a0a0c" />
+  <title>Fl1pp3r69 — The Dolphin Grew Teeth | Flipper Field Ops</title>
+  <link rel="canonical" href="https://fl1pp3r69.jonbailey.xyz/" />
+  <link rel="icon" href="/assets/fl1pp3r69-hero.png" type="image/png" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://fl1pp3r69.jonbailey.xyz/" />
+  <meta property="og:site_name" content="Fl1pp3r69" />
+  <meta property="og:title" content="Fl1pp3r69 — The Dolphin Grew Teeth" />
+  <meta property="og:description" content="Manifest-driven Flipper Zero field ops. CASEFILE ops, SHA-256 everything, DEWDROP NFC, Momentum base + ethics guardrails." />
+  <meta property="og:image" content="https://fl1pp3r69.jonbailey.xyz/assets/fl1pp3r69-launch-infographic.png" />
+  <meta property="og:image:alt" content="Fl1pp3r69 launch infographic" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Fl1pp3r69 — The Dolphin Grew Teeth" />
+  <meta name="twitter:description" content="Open-source Flipper Zero field ops with CASEFILE discipline and chain-of-custody." />
+  <meta name="twitter:image" content="https://fl1pp3r69.jonbailey.xyz/assets/fl1pp3r69-infographic.png" />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "Fl1pp3r69",
+    "alternateName": "Flipper69",
+    "applicationCategory": "SecurityApplication",
+    "operatingSystem": "Flipper Zero (Momentum)",
+    "softwareVersion": "2.0.0",
+    "description": "Manifest-driven Flipper Zero field ops suite — CASEFILE operations, SHA-256 chain-of-custody, NFC and SubGHz probes on Momentum firmware.",
+    "url": "https://fl1pp3r69.jonbailey.xyz/",
+    "downloadUrl": "https://github.com/Pitchfork-and-Torch/Fl1pp3r69",
+    "license": "https://opensource.org/licenses/MIT",
+    "author": { "@type": "Organization", "name": "Pitchfork-and-Torch" },
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "What is Fl1pp3r69?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Fl1pp3r69 is an open-source Flipper Zero field-ops suite built on Momentum. It stages captures inside named CASEFILE operations with SHA-256 manifests and desktop exfil."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Is Fl1pp3r69 for unauthorized access?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "No. Use only on hardware and systems you own or are authorized to test. Ethics guardrails are part of the product surface."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Where is the GitHub repo?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "https://github.com/Pitchfork-and-Torch/Fl1pp3r69"
+        }
+      }
+    ]
+  }
+  </script>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Orbitron:wght@500;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --orange: #ff6a00;
+      --orange-hot: #ff8c1a;
+      --acid: #39ff14;
+      --bg: #0a0a0c;
+      --panel: #121218;
+      --text: #e8e6e3;
+      --dim: #8a8680;
+    }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Share Tech Mono', ui-monospace, monospace;
+      background: var(--bg);
+      color: var(--text);
+      margin: 0;
+      min-height: 100%;
+    }
+    .crt::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      background: repeating-linear-gradient(
+        0deg,
+        rgba(0, 0, 0, 0.12) 0px,
+        rgba(0, 0, 0, 0.12) 1px,
+        transparent 1px,
+        transparent 3px
+      );
+      z-index: 50;
+      opacity: 0.3;
+    }
+    .crt::after {
+      content: '';
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      background: radial-gradient(ellipse at center, transparent 50%, rgba(0,0,0,.6) 100%);
+      z-index: 51;
+    }
+    .glow-orange { text-shadow: 0 0 10px rgba(255,106,0,.55), 0 0 28px rgba(255,106,0,.22); }
+    .glow-acid { text-shadow: 0 0 8px rgba(57,255,20,.45); }
+    .btn-f {
+      border: 1px solid var(--orange);
+      color: var(--orange-hot);
+      box-shadow: 0 0 14px rgba(255,106,0,.22);
+      transition: box-shadow .2s, background .2s, color .2s;
+      text-transform: uppercase;
+      letter-spacing: .14em;
+      font-size: .75rem;
+    }
+    .btn-f:hover {
+      background: rgba(255,106,0,.1);
+      box-shadow: 0 0 28px rgba(255,106,0,.4);
+      color: #fff;
+    }
+    .btn-ghost {
+      border: 1px solid rgba(57,255,20,.45);
+      color: var(--acid);
+      box-shadow: 0 0 12px rgba(57,255,20,.15);
+    }
+    .btn-ghost:hover { background: rgba(57,255,20,.08); }
+    .panel {
+      background: linear-gradient(165deg, #16161e 0%, #0e0e14 100%);
+      border: 1px solid rgba(255,106,0,.28);
+      border-radius: 14px;
+      box-shadow: 0 0 40px rgba(255,106,0,.06), inset 0 0 40px rgba(0,0,0,.35);
+    }
+    .chip {
+      border: 1px solid rgba(255,106,0,.35);
+      color: var(--orange-hot);
+      border-radius: 999px;
+      padding: .2rem .65rem;
+      font-size: .65rem;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+    }
+    .hud {
+      border: 1px solid rgba(255,106,0,.4);
+      background: #0c0c10;
+      border-radius: 8px;
+      font-size: .72rem;
+      line-height: 1.55;
+      color: var(--acid);
+      box-shadow: inset 0 0 24px rgba(0,0,0,.5);
+    }
+    .infographic {
+      width: 100%;
+      border-radius: 12px;
+      border: 1px solid rgba(255,106,0,.25);
+      box-shadow: 0 12px 40px rgba(0,0,0,.45);
+    }
+    .matrix-rain {
+      position: fixed;
+      inset: 0;
+      opacity: 0.07;
+      z-index: 0;
+      pointer-events: none;
+    }
+    #typewriter { min-height: 10rem; }
+    .cursor-blink::after {
+      content: '▌';
+      animation: blink .9s step-end infinite;
+      margin-left: 2px;
+      color: var(--orange);
+    }
+    @keyframes blink { 50% { opacity: 0; } }
+    #reveal { opacity: 0; transform: translateY(14px); transition: opacity 1.2s ease, transform 1.2s ease; }
+    #reveal.show { opacity: 1; transform: none; }
+    .section-label {
+      font-size: .65rem;
+      letter-spacing: .28em;
+      text-transform: uppercase;
+      color: rgba(255,106,0,.7);
+    }
+    a { color: var(--orange-hot); }
+  </style>
+</head>
+<body class="crt">
+  <canvas id="rain" class="matrix-rain" aria-hidden="true"></canvas>
+
+  <!-- Boot scene (Ghost Continuum-style typewriter) -->
+  <main id="scene" class="relative z-10 flex min-h-screen flex-col items-center justify-center px-6 text-center">
+    <p class="section-label mb-6 tracking-[0.4em]">UNCLASSIFIED // FRI</p>
+    <div id="typewriter" class="max-w-2xl text-left text-lg sm:text-2xl md:text-3xl leading-relaxed glow-orange"></div>
+  </main>
+
+  <!-- Reveal landing -->
+  <div id="reveal" class="relative z-20 hidden">
+    <header class="relative z-10 mx-auto max-w-5xl px-6 pt-16 pb-10 text-center">
+      <p class="section-label mb-3">Manifest-driven field ops</p>
+      <h1 class="font-['Orbitron'] text-4xl sm:text-6xl font-bold glow-orange tracking-wider mb-3">
+        FL1PP<span class="text-[#39ff14]">3</span>R69
+      </h1>
+      <p class="text-sm sm:text-base text-[#c8c4bc]/85 max-w-2xl mx-auto mb-6 leading-relaxed">
+        The dolphin grew teeth. Stock Flipper apps capture signals.
+        <strong class="text-[#ff8c1a]">Fl1pp3r69 captures signals inside an operation</strong> —
+        named, typed, phased, hashed, and exfil-ready.
+      </p>
+      <div class="flex flex-wrap gap-2 justify-center mb-8">
+        <span class="chip">v2.0.0</span>
+        <span class="chip">API 87.x</span>
+        <span class="chip">Momentum</span>
+        <span class="chip">SHA-256</span>
+        <span class="chip">4 FAPs</span>
+      </div>
+      <div class="flex flex-wrap gap-4 justify-center">
+        <a href="https://github.com/Pitchfork-and-Torch/Fl1pp3r69" class="btn-f px-6 py-3 rounded" target="_blank" rel="noopener">GitHub</a>
+        <a href="https://github.com/Pitchfork-and-Torch/Fl1pp3r69/releases" class="btn-f btn-ghost px-6 py-3 rounded" target="_blank" rel="noopener">Releases</a>
+        <a href="#infographics" class="btn-f px-6 py-3 rounded">Infographics</a>
+      </div>
+      <p class="mt-8">
+        <img src="/assets/fl1pp3r69-hero.png" alt="Fl1pp3r69 hero — the dolphin grew teeth" class="mx-auto max-w-md w-full rounded-xl border border-[#ff6a00]/30 shadow-2xl" width="520" height="auto" />
+      </p>
+    </header>
+
+    <section class="relative z-10 mx-auto max-w-5xl px-6 pb-12">
+      <div class="hud p-4 sm:p-5 mb-10 overflow-x-auto">
+<pre class="m-0 whitespace-pre text-left">╔══════════════════════════════════════════════════════════╗
+║  FL1PP3R69 // CASEFILE OPS              v2.0.0          ║
+║  ──────────────────────────────────────────────────────  ║
+║  [1] NEW OPERATION    [5] EXFIL TO DESKTOP                ║
+║  [3] RUN PHASE        [7] OPSEC TOGGLE                    ║
+║  [I][P][B][C][V][E][X]   MANIFEST ✓   OPSEC              ║
+╚══════════════════════════════════════════════════════════╝</pre>
+      </div>
+
+      <h2 class="section-label mb-4 text-center">What makes this different</h2>
+      <div class="grid sm:grid-cols-2 gap-4 mb-14">
+        <div class="panel p-5">
+          <h3 class="text-[#ff8c1a] text-sm tracking-widest uppercase mb-2">Everyone else</h3>
+          <ul class="text-sm text-[#a8a49e] space-y-2 list-disc pl-4">
+            <li>Random .sub / .nfc scattered on the SD</li>
+            <li>“I think I saved that Tuesday?”</li>
+            <li>Hope the file didn’t change</li>
+            <li>200 menu items, no workflow</li>
+          </ul>
+        </div>
+        <div class="panel p-5 border-[#39ff14]/25">
+          <h3 class="text-[#39ff14] text-sm tracking-widest uppercase mb-2">Fl1pp3r69</h3>
+          <ul class="text-sm text-[#c8f5e0]/90 space-y-2 list-disc pl-4">
+            <li>Staged ops under <code class="text-[#ff8c1a]">/ext/flipper69/operations/</code></li>
+            <li><code>TIMELINE.jsonl</code> + CASEFILE-MANIFEST + index</li>
+            <li>SHA-256 before every exfil</li>
+            <li>Numbered CASEFILE hub → probe plugins</li>
+          </ul>
+        </div>
+      </div>
+
+      <h2 class="section-label mb-4 text-center">The suite</h2>
+      <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-3 mb-14">
+        <div class="panel p-4">
+          <p class="text-[#ff8c1a] text-xs tracking-widest mb-1">CASEFILE OPS</p>
+          <p class="text-sm text-[#b0aca6]">Hub: new op, phases, panic, OPSEC badge, exfil</p>
+        </div>
+        <div class="panel p-4">
+          <p class="text-[#ff8c1a] text-xs tracking-widest mb-1">DEWDROP</p>
+          <p class="text-sm text-[#b0aca6]">NFC read / write / emulate with ownership chrome</p>
+        </div>
+        <div class="panel p-4">
+          <p class="text-[#ff8c1a] text-xs tracking-widest mb-1">DAMP_CROWD</p>
+          <p class="text-sm text-[#b0aca6]">SubGHz bands + timestamped sidecars</p>
+        </div>
+        <div class="panel p-4">
+          <p class="text-[#ff8c1a] text-xs tracking-widest mb-1">MANIFEST VIEWER</p>
+          <p class="text-sm text-[#b0aca6]">crypttool browse + VERIFIED badge</p>
+        </div>
+      </div>
+
+      <h2 id="infographics" class="section-label mb-4 text-center">Infographics</h2>
+      <div class="grid md:grid-cols-2 gap-6 mb-14">
+        <figure class="panel p-3">
+          <img src="/assets/fl1pp3r69-launch-infographic.png" alt="Fl1pp3r69 launch infographic — CASEFILE pipeline overview" class="infographic" width="800" height="auto" loading="lazy" />
+          <figcaption class="text-center text-xs text-[#8a8680] mt-3 tracking-wide">LAUNCH // pipeline &amp; discipline</figcaption>
+        </figure>
+        <figure class="panel p-3">
+          <img src="/assets/fl1pp3r69-infographic.png" alt="Fl1pp3r69 product infographic — field ops features" class="infographic" width="800" height="auto" loading="lazy" />
+          <figcaption class="text-center text-xs text-[#8a8680] mt-3 tracking-wide">PRODUCT // field ops surface</figcaption>
+        </figure>
+      </div>
+
+      <h2 class="section-label mb-4 text-center">Quick start</h2>
+      <div class="panel p-5 mb-14 text-left text-sm overflow-x-auto">
+        <pre class="m-0 text-[#39ff14]/90 whitespace-pre-wrap">git clone https://github.com/Pitchfork-and-Torch/Fl1pp3r69.git
+cd Fl1pp3r69
+# Build FAPs against Momentum (see README / scripts)
+# Flash dist/*.fap to SD · open CASEFILE OPS on device</pre>
+      </div>
+
+      <h2 class="section-label mb-4 text-center">Ethics</h2>
+      <div class="panel p-5 mb-16 text-sm text-[#b0aca6] max-w-2xl mx-auto text-center leading-relaxed">
+        Owned hardware and authorized targets only. Fl1pp3r69 is a precision instrument for
+        people who take custody of their captures seriously — not a toy for trespass.
+        <span class="block mt-3 text-[#ff8c1a]/90">PITCHFORK-AND-TORCH · FIELD RESPONSIBILITY REQUIRED</span>
+      </div>
+    </section>
+
+    <footer class="relative z-10 border-t border-white/10 py-8 text-center text-[10px] tracking-widest text-[#5a5650]">
+      <p>
+        <a href="https://github.com/Pitchfork-and-Torch/Fl1pp3r69" class="text-[#ff8c1a]">GitHub</a>
+        · <a href="https://ghost.jonbailey.xyz/" class="text-[#39ff14]">Ghost Continuum</a>
+        · <a href="https://trenchcoat.jonbailey.xyz/" class="text-[#00ff9f]">Trench Coat</a>
+        · <a href="https://jonbailey.xyz/">Jon Bailey</a>
+      </p>
+      <p class="mt-3">© Pitchfork-and-Torch · MIT-style open source — see repo LICENSE</p>
+    </footer>
+  </div>
+
+  <script>
+    const LINES = [
+      'Booting CASEFILE core...',
+      'The dolphin grew teeth.',
+      'No more mystery files on the SD card.',
+      'Every artifact gets a receipt.',
+    ];
+    const CHAR_MS = 55;
+    const LINE_PAUSE = 700;
+    const tw = document.getElementById('typewriter');
+    const scene = document.getElementById('scene');
+    const reveal = document.getElementById('reveal');
+
+    function sleep(ms) { return new Promise((r) => setTimeout(r, ms)); }
+
+    async function typeLine(text) {
+      const line = document.createElement('div');
+      line.className = 'mb-4';
+      tw.appendChild(line);
+      for (let i = 0; i < text.length; i++) {
+        line.textContent = text.slice(0, i + 1);
+        line.classList.add('cursor-blink');
+        await sleep(CHAR_MS);
+      }
+      line.classList.remove('cursor-blink');
+    }
+
+    async function runScene() {
+      tw.innerHTML = '';
+      for (const line of LINES) {
+        await typeLine(line);
+        await sleep(LINE_PAUSE);
+      }
+      await sleep(900);
+      scene.style.transition = 'opacity .9s ease';
+      scene.style.opacity = '0';
+      await sleep(900);
+      scene.classList.add('hidden');
+      reveal.classList.remove('hidden');
+      requestAnimationFrame(() => reveal.classList.add('show'));
+    }
+
+    // Subtle rain (orange glyphs)
+    const canvas = document.getElementById('rain');
+    const ctx = canvas.getContext('2d');
+    let cols, drops;
+    function resizeRain() {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+      cols = Math.floor(canvas.width / 16);
+      drops = Array(cols).fill(0).map(() => Math.random() * -80);
+    }
+    function drawRain() {
+      ctx.fillStyle = 'rgba(10,10,12,0.1)';
+      ctx.fillRect(0, 0, canvas.width, canvas.height);
+      ctx.fillStyle = '#ff6a00';
+      ctx.font = '11px monospace';
+      for (let i = 0; i < cols; i++) {
+        const ch = '01░▒'[Math.floor(Math.random() * 4)];
+        ctx.fillText(ch, i * 16, drops[i] * 16);
+        if (drops[i] * 16 > canvas.height && Math.random() > 0.97) drops[i] = 0;
+        drops[i]++;
+      }
+      requestAnimationFrame(drawRain);
+    }
+    resizeRain();
+    window.addEventListener('resize', resizeRain);
+    drawRain();
+    runScene();
+  </script>
+  <script src="/projects-panel.js?v=4" defer></script>
+</body>
+</html>

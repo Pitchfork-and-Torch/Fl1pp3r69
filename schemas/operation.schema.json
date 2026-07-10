@@ -1,0 +1,60 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://flipper69.local/schemas/operation.schema.json",
+  "title": "Flipper69 Operation",
+  "description": "Field operation record for desktop ops merge",
+  "type": "object",
+  "required": ["opId", "opType", "phase", "openedAt", "device"],
+  "properties": {
+    "opId": {
+      "type": "string",
+      "pattern": "^op-[0-9]{8}-[a-z0-9-]+$"
+    },
+    "opType": {
+      "type": "string",
+      "enum": ["proximity", "survey", "replay", "inject", "unified"]
+    },
+    "phase": {
+      "type": "string",
+      "enum": ["intake", "op_prep", "probe", "capture", "verify", "exfil", "close"]
+    },
+    "openedAt": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "closedAt": {
+      "type": ["string", "null"],
+      "format": "date-time"
+    },
+    "device": {
+      "type": "object",
+      "required": ["firmware", "serial"],
+      "properties": {
+        "firmware": { "type": "string", "const": "flipper69" },
+        "version": { "type": "string" },
+        "serial": { "type": "string" },
+        "region": { "type": "string" }
+      }
+    },
+    "target": {
+      "type": "object",
+      "properties": {
+        "label": { "type": "string" },
+        "notes": { "type": "string" },
+        "authorized": { "type": "boolean", "default": false }
+      }
+    },
+    "manifestHash": {
+      "type": ["string", "null"],
+      "pattern": "^[a-f0-9]{64}$"
+    },
+    "permissions": {
+      "type": "object",
+      "properties": {
+        "opsec": { "type": "boolean" },
+        "txEnabled": { "type": "boolean" },
+        "replayConfirmed": { "type": "boolean" }
+      }
+    }
+  }
+}

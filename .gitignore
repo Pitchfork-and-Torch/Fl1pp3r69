@@ -1,0 +1,24 @@
+# ufbt SDK + toolchain (huge, reproducible via ufbt update)
+**/.ufbt/
+.env
+
+# Debug artifacts
+dist/debug/
+**/*.elf
+**/*.map
+**/*.o
+**/*.d
+**/.vscode/
+
+# Momentum fork tree (cloned locally via init-firmware-fork.ps1 — not committed)
+firmware/momentum/
+
+# Firmware release output
+dist/firmware/
+
+# OS
+Thumbs.db
+.DS_Store
+# Local marketing renders
+assets/marketing/
+

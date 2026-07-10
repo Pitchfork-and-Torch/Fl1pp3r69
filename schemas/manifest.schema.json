@@ -1,0 +1,37 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://flipper69.local/schemas/manifest.schema.json",
+  "title": "Flipper69 CASEFILE Manifest",
+  "description": "SHA-256 integrity manifest for field operations",
+  "type": "object",
+  "required": ["generatedAt", "opId", "items", "firmware"],
+  "properties": {
+    "generatedAt": { "type": "string", "format": "date-time" },
+    "opId": { "type": "string" },
+    "firmware": { "type": "string", "const": "flipper69" },
+    "firmwareVersion": { "type": "string" },
+    "items": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["type", "path", "hash"],
+        "properties": {
+          "type": {
+            "type": "string",
+            "enum": ["capture", "metadata", "timeline", "notes", "script"]
+          },
+          "path": { "type": "string" },
+          "hash": {
+            "type": ["string", "null"],
+            "pattern": "^[a-f0-9]{64}$"
+          },
+          "probe": {
+            "type": "string",
+            "enum": ["subghz", "nfc", "ir", "badusb", "gpio", "ble", "field", "dewdrop", "dampcrowd"]
+          },
+          "sizeBytes": { "type": "integer", "minimum": 0 }
+        }
+      }
+    }
+  }
+}

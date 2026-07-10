@@ -1,0 +1,29 @@
+﻿{
+    "version":  "2.0.0",
+    "builtAt":  "2026-07-09T01:37:24.4319380Z",
+    "sdk":  "API 87.3",
+    "builder":  "ufbt",
+    "classification":  "UNCLASSIFIED//FRI",
+    "artifacts":  [
+                      {
+                          "name":  "flipper69_casefile_ops.fap",
+                          "sha256":  "30198335bb40c35cecbebb9bdf450ac9989d43d1f304607f72e9ecffbf0434d7",
+                          "sizeBytes":  30268
+                      },
+                      {
+                          "name":  "flipper69_probe_nfc.fap",
+                          "sha256":  "c00388c126b22a9a001a49052c68a6879ca5ce2cabf9cb8b511c7e2c78a35076",
+                          "sizeBytes":  253744
+                      },
+                      {
+                          "name":  "flipper69_probe_subghz.fap",
+                          "sha256":  "bed14eed7a9cde5bfcc0caee3ad1d6439d2e9b526cca7c03503ebe5e77264ad4",
+                          "sizeBytes":  5948
+                      },
+                      {
+                          "name":  "flipper69_manifest_viewer.fap",
+                          "sha256":  "f58b5af6103c7fbeeace41ad62b28dbe592367e46a638f37bf19f0fae8f3be39",
+                          "sizeBytes":  4996
+                      }
+                  ]
+}

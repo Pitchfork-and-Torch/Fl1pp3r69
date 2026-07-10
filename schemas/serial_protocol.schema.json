@@ -1,0 +1,59 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://flipper69.local/schemas/serial_protocol.schema.json",
+  "title": "Flipper69 Serial Exfil Protocol",
+  "description": "JSON-lines messages over USB CDC @ 115200",
+  "oneOf": [
+    {
+      "type": "object",
+      "required": ["type", "opId", "opType", "phase"],
+      "properties": {
+        "type": { "const": "op_header" },
+        "opId": { "type": "string" },
+        "opType": { "type": "string" },
+        "phase": { "type": "string" }
+      }
+    },
+    {
+      "type": "object",
+      "required": ["type", "opId", "generatedAt", "items"],
+      "properties": {
+        "type": { "const": "manifest" },
+        "opId": { "type": "string" },
+        "generatedAt": { "type": "string" },
+        "items": { "type": "array" }
+      }
+    },
+    {
+      "type": "object",
+      "required": ["type", "opId", "path", "sha256"],
+      "properties": {
+        "type": { "const": "artifact" },
+        "opId": { "type": "string" },
+        "path": { "type": "string" },
+        "sha256": { "type": "string" },
+        "b64": { "type": "string" },
+        "probe": { "type": "string" }
+      }
+    },
+    {
+      "type": "object",
+      "required": ["type", "opId", "manifestHash"],
+      "properties": {
+        "type": { "const": "op_close" },
+        "opId": { "type": "string" },
+        "manifestHash": { "type": "string" }
+      }
+    },
+    {
+      "type": "object",
+      "required": ["type", "opId", "status"],
+      "properties": {
+        "type": { "const": "ack" },
+        "opId": { "type": "string" },
+        "status": { "enum": ["stored", "rejected", "partial"] },
+        "desktopPath": { "type": "string" }
+      }
+    }
+  ]
+}

@@ -1,0 +1,88 @@
+{
+  "distro": "flipper69",
+  "version": "2.0.0",
+  "classification": "UNCLASSIFIED//FRI",
+  "tagline": "the dolphin grew teeth",
+  "upstream": {
+    "name": "Momentum-Firmware",
+    "repo": "https://github.com/Next-Flip/Momentum-Firmware.git",
+    "branch": "dev",
+    "sha": "8ed809fba8af7ac3f09b9495a597d8963f9178a8",
+    "inherits": ["flipperdevices/flipperzero-firmware", "DarkFlippers/unleashed-firmware"]
+  },
+  "excluded_features": [
+    "subghz_jamming",
+    "tx_region_bypass",
+    "ungated_bruteforce",
+    "rogue_plugin_soup"
+  ],
+  "faps": [
+    {
+      "appid": "flipper69_casefile_ops",
+      "source": "fap/casefile_ops",
+      "target": "applications_user/flipper69_casefile_ops",
+      "install": "apps/flipper69_casefile_ops.fap",
+      "boot_home": true,
+      "version": "2.0"
+    },
+    {
+      "appid": "flipper69_probe_nfc",
+      "source": "fap/probe_nfc",
+      "target": "applications_user/flipper69_probe_nfc",
+      "install": "apps/NFC/flipper69_probe_nfc.fap",
+      "version": "2.0"
+    },
+    {
+      "appid": "flipper69_probe_subghz",
+      "source": "fap/probe_subghz",
+      "target": "applications_user/flipper69_probe_subghz",
+      "install": "apps/flipper69_probe_subghz.fap",
+      "version": "2.0"
+    },
+    {
+      "appid": "flipper69_manifest_viewer",
+      "source": "fap/manifest_viewer",
+      "target": "applications_user/flipper69_manifest_viewer",
+      "install": "apps/flipper69_manifest_viewer.fap",
+      "version": "2.0"
+    }
+  ],
+  "patches": [
+    {
+      "file": "patches/flipper69_opsec.c",
+      "target": "applications/services/flipper69/flipper69_opsec.c",
+      "phase": "P2"
+    },
+    {
+      "file": "patches/flipper69_opsec.h",
+      "target": "applications/services/flipper69/flipper69_opsec.h",
+      "phase": "P2"
+    },
+    {
+      "file": "patches/flipper69_service.c",
+      "target": "applications/services/flipper69/flipper69_service.c",
+      "phase": "P2"
+    },
+    {
+      "file": "patches/application.fam",
+      "target": "applications/services/flipper69/application.fam",
+      "phase": "P2"
+    },
+    {
+      "file": "patches/desktop_autostart.c",
+      "target": "applications/services/flipper69/flipper69_desktop.c",
+      "phase": "P2"
+    },
+    {
+      "file": "patches/flipper69_serial.c",
+      "target": "applications/services/flipper69/flipper69_serial.c",
+      "phase": "P4"
+    }
+  ],
+  "theme": {
+    "file": "theme/flipper69.json",
+    "target": "assets/packaged/flipper69/theme.json",
+    "phase": "P3",
+    "version": "2.0.0"
+  }
+}

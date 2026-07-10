@@ -1,0 +1,49 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  validate:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Required product layout
+        shell: pwsh
+        run: |
+          $required = @(
+            'README.md',
+            'LICENSE',
+            'SECURITY.md',
+            'CHANGELOG.md',
+            'schemas/operation.schema.json',
+            'schemas/manifest.schema.json',
+            'sync/flipper69-sync.ps1',
+            'sync/new-field-op.ps1',
+            'scripts/build-fap.ps1',
+            'fap/casefile_ops/application.fam'
+          )
+          foreach ($p in $required) {
+            if (-not (Test-Path $p)) { throw "Missing required path: $p" }
+          }
+          Write-Host "Product layout OK"
+
+      - name: PowerShell syntax check
+        shell: pwsh
+        run: |
+          $files = Get-ChildItem -Recurse -Include *.ps1 -File |
+            Where-Object { $_.FullName -notmatch '\\dist\\' }
+          foreach ($f in $files) {
+            $errors = $null
+            $null = [System.Management.Automation.Language.Parser]::ParseFile(
+              $f.FullName, [ref]$null, [ref]$errors)
+            if ($errors -and $errors.Count -gt 0) {
+              $errors | ForEach-Object { Write-Host $_ }
+              throw "Parse errors in $($f.FullName)"
+            }
+            Write-Host "OK $($f.Name)"
+          }
