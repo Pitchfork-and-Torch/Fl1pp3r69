@@ -1,0 +1,58 @@
+{
+  "version": "4.0.0",
+  "releaseCodename": "ARGUS VEIL",
+  "api": "87.x",
+  "generatedAt": "2026-07-11T22:36:03Z",
+  "artifacts": [
+    {
+      "file": "flipper69_casefile_ops.fap",
+      "sha256": "c78a57791aec649e002f2d04e7bd0ddc02a5dfb78403a33af6c8b317730f0b37",
+      "size": 35736
+    },
+    {
+      "file": "flipper69_manifest_viewer.fap",
+      "sha256": "8f528aaaffa58e526972a98d3ab042926b2f20e6c2754c2cd977adbb7b0e67f3",
+      "size": 5116
+    },
+    {
+      "file": "flipper69_probe_badusb.fap",
+      "sha256": "6aa517904c96fb96fdedaaff1a7f0aa840abe41412b2c1e15d3c41f53a9eb493",
+      "size": 6040
+    },
+    {
+      "file": "flipper69_probe_ble.fap",
+      "sha256": "c4a0cb8635593607ebf5f949e927a66962715ab3e60ec35fb71607bc88e586e7",
+      "size": 6024
+    },
+    {
+      "file": "flipper69_probe_gpio.fap",
+      "sha256": "18613eea4af40995355fc6e1e9c29f467272fc56b5ec49e1589aeeca866c147e",
+      "size": 6040
+    },
+    {
+      "file": "flipper69_probe_ibutton.fap",
+      "sha256": "27af464b31a965b037d360d25924e13330b29c35120953f02fbf47250702331e",
+      "size": 6028
+    },
+    {
+      "file": "flipper69_probe_ir.fap",
+      "sha256": "28b89ed3e8977413e520828a7b533d2444d3c6334ccd4ad1fe35d1c656b8d39f",
+      "size": 6268
+    },
+    {
+      "file": "flipper69_probe_nfc.fap",
+      "sha256": "0c8f9f67b47d0223db9a8b094dba80308f0627c19d6740d4c5d1689f1bdfcc71",
+      "size": 254316
+    },
+    {
+      "file": "flipper69_probe_rfid.fap",
+      "sha256": "2fa65bb09fbf8cfe98b38c223b0a2e16b7919a713ba14021575a2cac8f03eb7b",
+      "size": 6024
+    },
+    {
+      "file": "flipper69_probe_subghz.fap",
+      "sha256": "3d535de39a0562d29c98516c0ac48475cb04a565bcdedb2e7c351697a9278af6",
+      "size": 6472
+    }
+  ]
+}

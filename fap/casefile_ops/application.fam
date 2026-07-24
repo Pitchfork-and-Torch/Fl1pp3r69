@@ -1,0 +1,13 @@
+App(
+    appid="flipper69_casefile_ops",
+    name="CASEFILE Ops",
+    apptype=FlipperAppType.EXTERNAL,
+    entry_point="casefile_ops_main",
+    requires=["storage", "gui"],
+    stack_size=4 * 1024,
+    order=0,
+    fap_version="4.0",
+    fap_description="Fl1pp3r69 ARGUS VEIL CASEFILE hub — claim harness, multi-domain ops, SHA-256 chain",
+    fap_author="Fl1pp3r69",
+    fap_category="Tools",
+)

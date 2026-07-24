@@ -1,0 +1,56 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://flipper69.local/schemas/template.schema.json",
+  "title": "Flipper69 Operation Template",
+  "type": "object",
+  "required": ["templateId", "name", "opType", "pathLabel", "authorizationPrompt", "phases"],
+  "properties": {
+    "schemaVersion": { "type": "integer", "const": 3 },
+    "templateId": {
+      "type": "string",
+      "pattern": "^[a-z][a-z0-9-]{2,40}$"
+    },
+    "name": { "type": "string" },
+    "description": { "type": "string" },
+    "opType": {
+      "type": "string",
+      "enum": ["proximity", "survey", "replay", "inject", "unified"]
+    },
+    "pathLabel": {
+      "type": "string",
+      "enum": ["imps", "ds", "slow", "fast", "emerg"]
+    },
+    "authorizationPrompt": {
+      "type": "string",
+      "minLength": 20,
+      "description": "Text the operator must acknowledge"
+    },
+    "defaultAuthorized": { "type": "boolean", "const": false },
+    "suggestedProbes": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": ["nfc", "subghz", "ir", "gpio", "ble", "field"]
+      }
+    },
+    "phases": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["phase", "checklist"],
+        "properties": {
+          "phase": {
+            "type": "string",
+            "enum": ["intake", "op_prep", "probe", "capture", "verify", "exfil", "close"]
+          },
+          "checklist": {
+            "type": "array",
+            "items": { "type": "string" }
+          }
+        }
+      }
+    },
+    "notesScaffold": { "type": "string" }
+  },
+  "additionalProperties": false
+}

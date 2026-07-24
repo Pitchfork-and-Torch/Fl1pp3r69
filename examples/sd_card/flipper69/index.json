@@ -1,0 +1,10 @@
+﻿{
+    "updatedAt":  "2026-07-11T10:15:00Z",
+    "firmware":  "flipper69",
+    "version":  "3.0.0",
+    "operations":  [
+                       "op-20260706-flipper69-demo",
+                       "op-20260708-sim_v2-polish-00339828",
+                       "op-20260711-veil-ledger-demo"
+                   ]
+}

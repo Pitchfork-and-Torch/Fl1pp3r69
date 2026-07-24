@@ -1,0 +1,52 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://flipper69.local/schemas/probe.plugin.schema.json",
+  "title": "Flipper69 Probe Plugin Descriptor",
+  "description": "Contract for ethical community probe plugins. Metadata/capture only — no exploits.",
+  "type": "object",
+  "required": [
+    "pluginId",
+    "codename",
+    "version",
+    "probeDomain",
+    "artifactExtensions",
+    "ethics"
+  ],
+  "properties": {
+    "pluginId": {
+      "type": "string",
+      "pattern": "^[a-z][a-z0-9_]{2,32}$"
+    },
+    "codename": { "type": "string", "minLength": 2, "maxLength": 32 },
+    "version": { "type": "string" },
+    "probeDomain": {
+      "type": "string",
+      "enum": ["nfc", "subghz", "ir", "gpio", "ble", "rfid", "ibutton", "other_passive"]
+    },
+    "artifactExtensions": {
+      "type": "array",
+      "items": { "type": "string", "pattern": "^\\.[a-z0-9.]+$" },
+      "minItems": 1
+    },
+    "writesMetaSidecar": { "type": "boolean", "default": true },
+    "requiresAuthorizationGate": { "type": "boolean", "default": false },
+    "txCapable": {
+      "type": "boolean",
+      "default": false,
+      "description": "If true, must document regional compliance and auth gates"
+    },
+    "ethics": {
+      "type": "object",
+      "required": ["noExploits", "authorizedUseOnly", "statement"],
+      "properties": {
+        "noExploits": { "type": "boolean", "const": true },
+        "authorizedUseOnly": { "type": "boolean", "const": true },
+        "statement": { "type": "string", "minLength": 20 }
+      }
+    },
+    "fapAppId": { "type": "string" },
+    "maintainer": { "type": "string" },
+    "repository": { "type": "string", "format": "uri" }
+  },
+  "additionalProperties": false
+}

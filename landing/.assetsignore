@@ -1,0 +1,8 @@
+.wrangler
+.wrangler/**
+wrangler.toml
+wrangler.worker.toml
+README.md
+*.md
+.git
+.gitignore

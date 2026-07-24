@@ -1,0 +1,64 @@
+# ufbt SDK + toolchain (huge, reproducible via ufbt update)
+**/.ufbt/
+.env
+.env.*
+!.env.example
+
+# Secrets & credentials — never commit
+*.pem
+*.key
+*.p12
+*.pfx
+*credentials*
+*secret*
+!**/secret*.md
+!**/secrets-store/**
+id_rsa
+id_ed25519
+*.keystore
+
+# Real field-ops artifacts (demos live only under examples/)
+captures/
+!examples/**/captures/
+**/dump*/
+**/*.nfc
+**/*.sub
+**/*.ir
+**/*.rfid
+**/raw_*.bin
+sd_card_local/
+ops/
+!examples/**/operations/
+
+# Debug artifacts
+dist/debug/
+**/*.elf
+**/*.map
+**/*.o
+**/*.d
+**/.vscode/
+
+# Momentum fork tree (cloned locally via init-firmware-fork.ps1 — not committed)
+firmware/momentum/
+
+# Firmware release output
+dist/firmware/
+
+# OS
+Thumbs.db
+.DS_Store
+# Local marketing renders
+assets/marketing/
+
+# Landing deploy cache / local wrangler state
+landing/.wrangler/
+landing/node_modules/
+
+# Python desktop package local artifacts
+**/__pycache__/
+**/*.py[cod]
+**/.pytest_cache/
+desktop/*.egg-info/
+desktop/.eggs/
+*.egg-info/
+

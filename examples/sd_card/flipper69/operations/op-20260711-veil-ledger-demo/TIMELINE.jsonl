@@ -1,0 +1,5 @@
+{"ts":"2026-07-11T10:00:00Z","event":"INTAKE","source":"casefile_ops","ver":"3.0.0","data":{"templateId":"survey-building"}}
+{"ts":"2026-07-11T10:01:00Z","event":"OP_PREP","source":"casefile_ops","ver":"3.0.0","data":{"path":"ds"}}
+{"ts":"2026-07-11T10:05:00Z","event":"PROBE","source":"ember_trace","ver":"3.0.0","data":{"protocol":"NEC"}}
+{"ts":"2026-07-11T10:10:00Z","event":"CAPTURE","source":"ember_trace","ver":"3.0.0","data":{"file":"captures/ember_demo.meta.json"}}
+{"ts":"2026-07-11T10:15:00Z","event":"VERIFY","source":"casefile_ops","ver":"3.0.0","data":{"schemaVersion":3}}

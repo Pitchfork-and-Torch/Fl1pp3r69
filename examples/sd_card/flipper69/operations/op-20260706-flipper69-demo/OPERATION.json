@@ -1,0 +1,22 @@
+﻿{
+    "device":  {
+                   "region":  "US",
+                   "serial":  "DEV-SIM",
+                   "firmware":  "flipper69",
+                   "version":  "0.1.0-alpha"
+               },
+    "openedAt":  "2026-07-07T02:06:55.5174962Z",
+    "opType":  "unified",
+    "target":  {
+                   "label":  "flipper69-demo",
+                   "authorized":  true,
+                   "notes":  "Simulated field op for manifest testing"
+               },
+    "permissions":  {
+                        "opsec":  true,
+                        "replayConfirmed":  false,
+                        "txEnabled":  false
+                    },
+    "phase":  "op_prep",
+    "opId":  "op-20260706-flipper69-demo"
+}

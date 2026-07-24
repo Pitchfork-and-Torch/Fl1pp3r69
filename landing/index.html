@@ -1,0 +1,267 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Fl1pp3r69 — manifest-driven Flipper Zero field ops. CASEFILE discipline, SHA-256 chain-of-custody, Momentum base. Open source." />
+  <meta name="robots" content="index, follow, max-image-preview:large" />
+  <meta name="keywords" content="Fl1pp3r69, Flipper Zero, CASEFILE, field ops, Momentum firmware, SHA-256, open source" />
+  <meta name="author" content="Pitchfork-and-Torch" />
+  <meta name="theme-color" content="#0a0a0c" />
+  <title>Fl1pp3r69 — The Dolphin Grew Teeth</title>
+  <link rel="canonical" href="https://fl1pp3r69.jonbailey.xyz/" />
+  <link rel="alternate" type="text/plain" title="LLM / answer-engine summary" href="https://fl1pp3r69.jonbailey.xyz/llms.txt" />
+  <link rel="sitemap" type="application/xml" title="Sitemap" href="https://fl1pp3r69.jonbailey.xyz/sitemap.xml" />
+  <link rel="icon" href="/assets/fl1pp3r69-hero.png" type="image/png" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://fl1pp3r69.jonbailey.xyz/" />
+  <meta property="og:site_name" content="Fl1pp3r69" />
+  <meta property="og:locale" content="en_US" />
+  <meta property="og:title" content="Fl1pp3r69 — The Dolphin Grew Teeth" />
+  <meta property="og:description" content="Manifest-driven Flipper Zero field ops. CASEFILE ops, SHA-256 everything, Momentum base + ethics guardrails." />
+  <meta property="og:image" content="https://fl1pp3r69.jonbailey.xyz/assets/share-card.jpg" />
+  <meta property="og:image:secure_url" content="https://fl1pp3r69.jonbailey.xyz/assets/share-card.jpg" />
+  <meta property="og:image:type" content="image/jpeg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="Fl1pp3r69 — The Dolphin Grew Teeth" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Fl1pp3r69 — The Dolphin Grew Teeth" />
+  <meta name="twitter:description" content="Open-source Flipper Zero field ops with CASEFILE discipline and chain-of-custody." />
+  <meta name="twitter:image" content="https://fl1pp3r69.jonbailey.xyz/assets/share-card.jpg" />
+  <meta name="twitter:image:alt" content="Fl1pp3r69 — The Dolphin Grew Teeth" />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "Fl1pp3r69",
+    "alternateName": "Flipper69",
+    "applicationCategory": "SecurityApplication",
+    "operatingSystem": "Flipper Zero (Momentum)",
+    "softwareVersion": "2.0.0",
+    "description": "Manifest-driven Flipper Zero field-ops suite — CASEFILE operations, SHA-256 chain-of-custody, NFC and SubGHz probes on Momentum firmware.",
+    "url": "https://fl1pp3r69.jonbailey.xyz/",
+    "downloadUrl": "https://github.com/Pitchfork-and-Torch/Fl1pp3r69",
+    "license": "https://opensource.org/licenses/MIT",
+    "author": { "@type": "Organization", "name": "Pitchfork-and-Torch" },
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "What is Fl1pp3r69?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Fl1pp3r69 is an open-source Flipper Zero field-ops suite built on Momentum. It stages captures inside named CASEFILE operations with SHA-256 manifests and desktop exfil."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Is Fl1pp3r69 for unauthorized access?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "No. Use only on hardware and systems you own or are authorized to test."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Where is the GitHub repo?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "https://github.com/Pitchfork-and-Torch/Fl1pp3r69"
+        }
+      }
+    ]
+  }
+  </script>
+  <style>
+    :root {
+      --orange: #ff6a00;
+      --orange-hot: #ff8c1a;
+      --acid: #39ff14;
+      --bg: #0a0a0c;
+      --text: #e8e6e3;
+      --dim: #8a8680;
+      --line: rgba(255, 106, 0, 0.28);
+    }
+    * { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; }
+    body {
+      font-family: ui-monospace, "Cascadia Code", "Segoe UI Mono", Consolas, monospace;
+      background: radial-gradient(900px 480px at 50% -8%, #1a1008 0%, var(--bg) 55%);
+      color: var(--text);
+      min-height: 100vh;
+      line-height: 1.5;
+    }
+    a { color: var(--orange-hot); text-decoration: none; }
+    a:hover { color: #fff; }
+    .wrap {
+      max-width: 920px;
+      margin: 0 auto;
+      padding: 1.75rem 1.25rem 3rem;
+    }
+    header {
+      text-align: center;
+      margin-bottom: 1.5rem;
+    }
+    .eyebrow {
+      font-size: 0.68rem;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      color: rgba(255, 106, 0, 0.75);
+      margin: 0 0 0.75rem;
+    }
+    h1 {
+      font-family: system-ui, Segoe UI, sans-serif;
+      font-size: clamp(1.75rem, 5vw, 2.75rem);
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      margin: 0 0 0.5rem;
+      text-shadow: 0 0 18px rgba(255, 106, 0, 0.35);
+    }
+    h1 .acid { color: var(--acid); }
+    .tagline {
+      margin: 0 auto 1.25rem;
+      max-width: 36rem;
+      color: rgba(232, 230, 227, 0.82);
+      font-size: 0.95rem;
+    }
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      justify-content: center;
+      margin-bottom: 1.5rem;
+    }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 44px;
+      padding: 0.7rem 1.25rem;
+      border: 1px solid var(--orange);
+      border-radius: 8px;
+      color: var(--orange-hot);
+      font-size: 0.72rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      box-shadow: 0 0 14px rgba(255, 106, 0, 0.18);
+      transition: background 0.15s, color 0.15s, box-shadow 0.15s;
+    }
+    .btn:hover {
+      background: rgba(255, 106, 0, 0.12);
+      color: #fff;
+      box-shadow: 0 0 24px rgba(255, 106, 0, 0.35);
+    }
+    .btn.ghost {
+      border-color: rgba(57, 255, 20, 0.45);
+      color: var(--acid);
+      box-shadow: 0 0 12px rgba(57, 255, 20, 0.12);
+    }
+    .btn.ghost:hover {
+      background: rgba(57, 255, 20, 0.08);
+      color: #fff;
+    }
+    .explainer {
+      margin: 0;
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      overflow: hidden;
+      background: #0c0c10;
+      box-shadow: 0 16px 48px rgba(0, 0, 0, 0.45), 0 0 40px rgba(255, 106, 0, 0.06);
+    }
+    .explainer img {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+    .explainer figcaption {
+      padding: 0.75rem 1rem;
+      text-align: center;
+      font-size: 0.68rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--dim);
+      border-top: 1px solid rgba(255, 106, 0, 0.15);
+    }
+    .ethics {
+      margin: 1.5rem auto 0;
+      max-width: 34rem;
+      text-align: center;
+      font-size: 0.8rem;
+      color: var(--dim);
+    }
+    .ethics strong {
+      display: block;
+      margin-top: 0.5rem;
+      color: rgba(255, 140, 26, 0.9);
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      font-size: 0.72rem;
+    }
+    footer {
+      margin-top: 2rem;
+      padding-top: 1.25rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+      text-align: center;
+      font-size: 0.65rem;
+      letter-spacing: 0.12em;
+      color: #5a5650;
+    }
+    footer p { margin: 0.4rem 0; }
+    footer a { color: var(--orange-hot); }
+    footer a.g { color: var(--acid); }
+    footer a.t { color: #00ff9f; }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <p class="eyebrow">Flipper Zero field ops · v2.0.0</p>
+      <h1>FL1PP<span class="acid">3</span>R69</h1>
+      <p class="tagline">
+        The dolphin grew teeth. CASEFILE ops, SHA-256 chain-of-custody,
+        pocket to desktop — on Momentum.
+      </p>
+      <div class="actions">
+        <a class="btn" href="https://github.com/Pitchfork-and-Torch/Fl1pp3r69" target="_blank" rel="noopener noreferrer">GitHub</a>
+        <a class="btn ghost" href="https://github.com/Pitchfork-and-Torch/Fl1pp3r69/releases" target="_blank" rel="noopener noreferrer">Releases</a>
+      </div>
+    </header>
+
+    <figure class="explainer">
+      <img
+        src="/assets/fl1pp3r69-launch-infographic.png"
+        width="1200"
+        height="1600"
+        alt="Fl1pp3r69 explainer: CASEFILE pipeline, SHA-256 manifests, field ops on Momentum firmware"
+        fetchpriority="high"
+      />
+      <figcaption>How Fl1pp3r69 works — CASEFILE discipline from capture to exfil</figcaption>
+    </figure>
+
+    <p class="ethics">
+      Owned hardware and authorized targets only. Not a toy for trespass.
+      <strong>Pitchfork-and-Torch · field responsibility required</strong>
+    </p>
+
+    <footer>
+      <p>
+        <a href="https://github.com/Pitchfork-and-Torch/Fl1pp3r69">Source</a>
+        · <a class="g" href="https://ghost.jonbailey.xyz/">Ghost Continuum</a>
+        · <a class="t" href="https://trenchcoat.jonbailey.xyz/">Trench Coat</a>
+        · <a href="https://axiom.jonbailey.xyz/">AXIOM</a>
+        · <a href="https://github.com/Pitchfork-and-Torch/GrokLink-OS">GrokLink OS</a>
+        · <a href="https://jonbailey.xyz/">Jon Bailey</a>
+      </p>
+      <p>© Pitchfork-and-Torch · open source — see repo LICENSE</p>
+    </footer>
+  </div>
+  <script src="/projects-panel.js?v=7" defer></script>
+</body>
+</html>

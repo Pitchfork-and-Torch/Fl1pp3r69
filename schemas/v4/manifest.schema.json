@@ -1,0 +1,109 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://flipper69.local/schemas/v4/manifest.schema.json",
+  "title": "Flipper69 CASEFILE Manifest v4 (ARGUS VEIL draft)",
+  "type": "object",
+  "required": ["schemaVersion", "generatedAt", "opId", "items", "firmware"],
+  "properties": {
+    "schemaVersion": { "type": "integer", "const": 4 },
+    "generatedAt": { "type": "string", "format": "date-time" },
+    "opId": { "type": "string" },
+    "firmware": { "type": "string", "const": "flipper69" },
+    "firmwareVersion": { "type": "string" },
+    "releaseCodename": { "type": "string" },
+    "classification": { "type": "string" },
+    "verifyCount": { "type": "integer", "minimum": 1 },
+    "chainPrev": {
+      "type": ["string", "null"],
+      "pattern": "^[a-f0-9]{64}$"
+    },
+    "sealAlg": {
+      "type": "string",
+      "enum": ["sha256", "sha256-merkle-v1", "sha256-chunked-v1"]
+    },
+    "merkleRoot": {
+      "type": ["string", "null"],
+      "pattern": "^[a-f0-9]{64}$"
+    },
+    "operatorId": { "type": ["string", "null"] },
+    "parts": {
+      "type": "array",
+      "description": "Chunked manifest part descriptors when sealAlg is chunked",
+      "items": {
+        "type": "object",
+        "required": ["path", "hash", "itemCount"],
+        "properties": {
+          "path": { "type": "string" },
+          "hash": { "type": "string", "pattern": "^[a-f0-9]{64}$" },
+          "itemCount": { "type": "integer", "minimum": 0 }
+        }
+      }
+    },
+    "items": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["type", "path", "hash"],
+        "properties": {
+          "type": {
+            "type": "string",
+            "enum": [
+              "capture",
+              "metadata",
+              "timeline",
+              "notes",
+              "script",
+              "checkpoint",
+              "operation",
+              "claim",
+              "link",
+              "roe"
+            ]
+          },
+          "artifactClass": {
+            "type": "string",
+            "enum": [
+              "raw",
+              "meta",
+              "script",
+              "note",
+              "derived",
+              "link",
+              "claim",
+              "evidence_photo"
+            ]
+          },
+          "domain": {
+            "type": "string",
+            "enum": [
+              "nfc",
+              "subghz",
+              "ir",
+              "rfid",
+              "ibutton",
+              "gpio",
+              "badusb",
+              "ble",
+              "field",
+              "system"
+            ]
+          },
+          "path": { "type": "string" },
+          "hash": {
+            "type": ["string", "null"],
+            "pattern": "^[a-f0-9]{64}$"
+          },
+          "probe": { "type": "string" },
+          "sizeBytes": { "type": "integer", "minimum": 0 },
+          "claimedFrom": { "type": "string" },
+          "linkGroupId": { "type": "string" },
+          "labels": {
+            "type": "array",
+            "items": { "type": "string" }
+          }
+        }
+      }
+    }
+  },
+  "additionalProperties": true
+}

@@ -1,0 +1,29 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "flipper69"
+version = "4.0.0"
+description = "Fl1pp3r69 ARGUS VEIL desktop toolkit — sync, audit, seal, report, dashboard"
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+authors = [{ name = "Pitchfork-and-Torch" }]
+keywords = ["flipper-zero", "casefile", "manifest", "field-ops", "security-research"]
+dependencies = []
+
+[project.optional-dependencies]
+dev = ["pytest>=7.0"]
+pdf = ["reportlab>=4.0"]
+serial = ["pyserial>=3.5"]
+
+[project.scripts]
+flipper69 = "flipper69.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["flipper69*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
