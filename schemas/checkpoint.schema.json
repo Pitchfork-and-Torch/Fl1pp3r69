@@ -1,0 +1,23 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://flipper69.local/schemas/checkpoint.schema.json",
+  "title": "Flipper69 Operation Checkpoint",
+  "description": "Power-loss recovery marker written on phase changes",
+  "type": "object",
+  "required": ["schemaVersion", "opId", "phase", "updatedAt"],
+  "properties": {
+    "schemaVersion": { "type": "integer", "const": 3 },
+    "opId": { "type": "string" },
+    "phase": {
+      "type": "string",
+      "enum": ["intake", "op_prep", "probe", "capture", "verify", "exfil", "close"]
+    },
+    "session": { "type": "integer", "minimum": 1 },
+    "updatedAt": { "type": "string", "format": "date-time" },
+    "reason": {
+      "type": "string",
+      "enum": ["phase_advance", "verify", "exfil", "resume", "manual", "create"]
+    }
+  },
+  "additionalProperties": false
+}

@@ -1,0 +1,22 @@
+# Production path for fl1pp3r69.jonbailey.xyz (Workers Static Assets).
+# Single deploy — do not use a separate Pages custom domain for this hostname.
+#
+# Deploy:
+#   npx wrangler deploy -c wrangler.worker.toml
+#
+# Optional preview (pages.dev only, no custom domain):
+#   npx wrangler pages deploy . --project-name=fl1pp3r69 --branch=main --commit-dirty=true
+
+name = "fl1pp3r69-site"
+compatibility_date = "2026-07-01"
+workers_dev = false
+account_id = "75c71da18eeb801b3408c812742d6590"
+
+[assets]
+directory = "."
+not_found_handling = "404-page"
+html_handling = "auto-trailing-slash"
+
+[[routes]]
+pattern = "fl1pp3r69.jonbailey.xyz"
+custom_domain = true

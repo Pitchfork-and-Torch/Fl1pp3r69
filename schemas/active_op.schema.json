@@ -1,0 +1,21 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://flipper69.local/schemas/active_op.schema.json",
+  "title": "Flipper69 Active Operation Pointer",
+  "type": "object",
+  "required": ["schemaVersion", "opId", "updatedAt"],
+  "properties": {
+    "schemaVersion": { "type": "integer", "const": 3 },
+    "opId": {
+      "type": "string",
+      "pattern": "^op-[0-9]{8}-[a-z0-9-]+$"
+    },
+    "opPath": { "type": "string" },
+    "phase": {
+      "type": "string",
+      "enum": ["intake", "op_prep", "probe", "capture", "verify", "exfil", "close"]
+    },
+    "updatedAt": { "type": "string", "format": "date-time" }
+  },
+  "additionalProperties": false
+}

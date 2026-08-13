@@ -1,0 +1,17 @@
+{
+  "pluginId": "ember_trace",
+  "codename": "EMBER_TRACE",
+  "version": "3.0.0",
+  "probeDomain": "ir",
+  "artifactExtensions": [".ir", ".meta.json"],
+  "writesMetaSidecar": true,
+  "requiresAuthorizationGate": false,
+  "txCapable": false,
+  "ethics": {
+    "noExploits": true,
+    "authorizedUseOnly": true,
+    "statement": "IR metadata sidecar only. Raw capture/TX remains in stock Infrared app under operator authorization on owned hardware."
+  },
+  "fapAppId": "flipper69_probe_ir",
+  "maintainer": "Pitchfork-and-Torch"
+}

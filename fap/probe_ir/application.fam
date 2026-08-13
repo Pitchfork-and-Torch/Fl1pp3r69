@@ -1,0 +1,13 @@
+App(
+    appid="flipper69_probe_ir",
+    name="EMBER_TRACE",
+    apptype=FlipperAppType.EXTERNAL,
+    entry_point="probe_ir_main",
+    requires=["storage", "gui"],
+    stack_size=2 * 1024,
+    order=25,
+    fap_version="4.0",
+    fap_description="Fl1pp3r69 IR CASEFILE sidecar — seals ember_trace metadata into active op",
+    fap_author="Fl1pp3r69",
+    fap_category="Infrared",
+)
