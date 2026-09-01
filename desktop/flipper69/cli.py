@@ -1,4 +1,4 @@
-"""flipper69 CLI — VEIL LEDGER desktop toolkit."""
+"""flipper69 CLI — ARGUS VEIL desktop toolkit."""
 
 from __future__ import annotations
 
@@ -25,6 +25,7 @@ def _banner() -> None:
     print("  +----------------------------------------------+")
     print(f"  |  FL1PP3R69 DESKTOP  v{__version__:<6}  {__release__:<12} |")
     print("  |  the dolphin grew teeth · ledger never lies  |")
+    print("  |  authorized ops only · no exploit PoCs       |")
     print("  +----------------------------------------------+")
     print()
 
@@ -208,7 +209,7 @@ def _add_vault(sp: argparse.ArgumentParser) -> None:
 def build_parser() -> argparse.ArgumentParser:
     p = argparse.ArgumentParser(
         prog="flipper69",
-        description="Fl1pp3r69 VEIL LEDGER desktop toolkit — offline CASEFILE vault tools",
+        description="Fl1pp3r69 ARGUS VEIL desktop toolkit — offline CASEFILE vault tools",
     )
     p.add_argument("--version", action="version", version=f"%(prog)s {__version__} ({__release__})")
     sub = p.add_subparsers(dest="cmd", required=True)

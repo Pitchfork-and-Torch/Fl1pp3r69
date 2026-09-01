@@ -10,7 +10,7 @@ def run_tui() -> int:
     root = default_ops_root()
     print()
     print("  +----------------------------------------------+")
-    print("  |  FL1PP3R69 VEIL LEDGER  vault browser        |")
+    print("  |  FL1PP3R69 ARGUS VEIL   vault browser        |")
     print(f"  |  {str(root)[:42]:<42} |")
     print("  +----------------------------------------------+")
     print()

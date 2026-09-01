@@ -149,7 +149,7 @@ def try_write_pdf(op_dir: Path, out_path: Path) -> Path | None:
     width, height = letter
     y = height - 48
     c.setFont("Courier-Bold", 14)
-    c.drawString(48, y, "FL1PP3R69 CASEFILE REPORT — VEIL LEDGER")
+    c.drawString(48, y, "FL1PP3R69 CASEFILE REPORT — ARGUS VEIL")
     y -= 24
     c.setFont("Courier", 10)
     for line in [

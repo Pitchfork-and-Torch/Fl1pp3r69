@@ -1,6 +1,8 @@
-# flipper69 desktop toolkit (v3.0 — VEIL LEDGER)
+# flipper69 desktop toolkit (v4.0.0 — ARGUS VEIL)
 
 Offline-first Python companion for Fl1pp3r69 CASEFILE operations.
+
+**Authorized ops only.** Use on hardware and systems you own or have explicit permission to test. This toolkit syncs, seals, audits, and reports — it does not ship exploit PoCs or undocumented attack procedures.
 
 ## Install
 

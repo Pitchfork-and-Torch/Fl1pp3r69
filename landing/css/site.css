@@ -390,6 +390,28 @@ button:focus-visible {
   font-size: 1.02rem;
 }
 
+.auth-disclaimer {
+  margin: 0 0 1.5rem;
+  max-width: 36rem;
+  padding: 0.85rem 1rem;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--line-blood);
+  background: rgba(196, 30, 30, 0.1);
+  color: var(--ink);
+  font-size: 0.92rem;
+  line-height: 1.5;
+}
+
+.auth-disclaimer strong {
+  color: #ff8a8a;
+}
+
+.auth-disclaimer a {
+  color: var(--amber);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
 .actions {
   display: flex;
   flex-wrap: wrap;

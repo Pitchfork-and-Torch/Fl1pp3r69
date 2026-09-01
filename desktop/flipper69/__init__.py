@@ -1,4 +1,4 @@
-"""Fl1pp3r69 VEIL LEDGER desktop toolkit."""
+"""Fl1pp3r69 ARGUS VEIL desktop toolkit."""
 
 __version__ = "4.0.0"
 __release__ = "ARGUS VEIL"

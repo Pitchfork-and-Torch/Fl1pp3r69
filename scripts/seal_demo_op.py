@@ -1,5 +1,8 @@
 #!/usr/bin/env python3
-"""Seal the VEIL LEDGER demo op with consistent SHA-256 items."""
+"""Seal the historical VEIL LEDGER (v3) demo op with consistent SHA-256 items.
+
+This script is intentionally pinned to the v3 example tree. Product version is 4.0.0 ARGUS VEIL.
+"""
 
 from __future__ import annotations
 

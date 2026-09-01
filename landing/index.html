@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="Fl1pp3r69 v4.0.0 ARGUS VEIL - open-source manifest-driven Flipper Zero field-ops suite. 10 FAPs, CASEFILE discipline, CLAIM harness, desktop seal + dashboard. Owned hardware only." />
+  <meta name="description" content="Fl1pp3r69 v4.0.0 ARGUS VEIL - open-source manifest-driven Flipper Zero field-ops suite. Authorized ops only. 10 FAPs, CASEFILE discipline, CLAIM harness, desktop seal + dashboard. No exploit PoCs." />
   <meta name="robots" content="index, follow, max-image-preview:large" />
   <meta name="keywords" content="Fl1pp3r69, Flipper Zero, ARGUS VEIL, CASEFILE, field ops, Momentum firmware, SHA-256, CLAIM harness, open source, Pitchfork-and-Torch" />
   <meta name="author" content="Pitchfork-and-Torch" />
@@ -14,13 +14,13 @@
   <link rel="sitemap" type="application/xml" title="Sitemap" href="https://fl1pp3r69.jonbailey.xyz/sitemap.xml" />
   <link rel="icon" href="/assets/favicon-32.png" type="image/png" sizes="32x32" />
   <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png" sizes="180x180" />
-  <link rel="stylesheet" href="/css/site.css?v=4.0.1" />
+  <link rel="stylesheet" href="/css/site.css?v=20260901" />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://fl1pp3r69.jonbailey.xyz/" />
   <meta property="og:site_name" content="Fl1pp3r69" />
   <meta property="og:locale" content="en_US" />
   <meta property="og:title" content="Fl1pp3r69 - ARGUS VEIL v4.0.0 | The Dolphin Grew Teeth" />
-  <meta property="og:description" content="Manifest-driven Flipper Zero field ops. 10 FAPs, CASEFILE chain-of-custody, CLAIM harness, desktop seal. Owned hardware only." />
+  <meta property="og:description" content="Manifest-driven Flipper Zero field ops. Authorized ops only. 10 FAPs, CASEFILE chain-of-custody, CLAIM harness, desktop seal. No exploit PoCs." />
   <meta property="og:image" content="https://fl1pp3r69.jonbailey.xyz/assets/share-card.jpg?v=4.0.0" />
   <meta property="og:image:secure_url" content="https://fl1pp3r69.jonbailey.xyz/assets/share-card.jpg?v=4.0.0" />
   <meta property="og:image:type" content="image/jpeg" />
@@ -29,7 +29,7 @@
   <meta property="og:image:alt" content="Fl1pp3r69 ARGUS VEIL v4.0.0 - The dolphin grew teeth" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Fl1pp3r69 - ARGUS VEIL v4.0.0 | The Dolphin Grew Teeth" />
-  <meta name="twitter:description" content="Open-source Flipper Zero field ops with CASEFILE discipline, 10 FAPs, and chain-of-custody." />
+  <meta name="twitter:description" content="Open-source Flipper Zero field ops. Authorized use only. CASEFILE discipline, 10 FAPs, chain-of-custody. No exploit PoCs." />
   <meta name="twitter:image" content="https://fl1pp3r69.jonbailey.xyz/assets/share-card.jpg?v=4.0.0" />
   <meta name="twitter:image:src" content="https://fl1pp3r69.jonbailey.xyz/assets/share-card.jpg?v=4.0.0" />
   <meta name="twitter:image:alt" content="Fl1pp3r69 ARGUS VEIL v4.0.0" />
@@ -44,7 +44,7 @@
     "applicationCategory": "SecurityApplication",
     "operatingSystem": "Flipper Zero (Momentum)",
     "softwareVersion": "4.0.0",
-    "description": "Open-source manifest-driven Flipper Zero field-ops suite (ARGUS VEIL): CASEFILE operations, 10 FAPs, CLAIM harness, SHA-256 chain-of-custody, desktop seal and dashboard on Momentum firmware. Owned hardware and authorized targets only.",
+    "description": "Open-source manifest-driven Flipper Zero field-ops suite (ARGUS VEIL v4.0.0): CASEFILE operations, 10 FAPs, CLAIM harness, SHA-256 chain-of-custody, desktop seal and dashboard on Momentum firmware. Authorized ops only — owned hardware and authorized targets. No exploit PoCs.",
     "url": "https://fl1pp3r69.jonbailey.xyz/",
     "downloadUrl": "https://github.com/Pitchfork-and-Torch/Fl1pp3r69/releases",
     "codeRepository": "https://github.com/Pitchfork-and-Torch/Fl1pp3r69",
@@ -81,7 +81,23 @@
         "name": "Is Fl1pp3r69 for unauthorized access?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "No. Use only on hardware and systems you own or are authorized to test. Field captures and metadata only - no exploit code, no jamming, no region bypass."
+          "text": "No. Authorized ops only: hardware and systems you own or have explicit permission to test. Field captures and metadata only. No exploit PoCs, no undocumented attack procedures, no jamming, no region bypass."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Does Fl1pp3r69 ship exploit proof-of-concepts?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "No. The suite organizes stock Flipper captures inside CASEFILE operations. It does not ship exploit PoCs, remote exploit frameworks, jamming tools, or undocumented attack procedures."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What version is live?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Product version is 4.0.0 ARGUS VEIL on the GitHub release, device FAPs, desktop toolkit, this landing page, and llms.txt. Historical v3 VEIL LEDGER demo ops in examples/ remain labeled 3.0.0 on purpose."
         }
       },
       {
@@ -125,7 +141,7 @@
         <a href="#pipeline">Pipeline</a>
         <a href="#suite">Suite</a>
         <a href="#workbench">Workbench</a>
-        <a href="#ethics">Ethics</a>
+        <a href="#ethics">Authorized use</a>
         <a href="#start">Quick start</a>
         <a href="#docs">Docs</a>
       </nav>
@@ -142,6 +158,7 @@
             <span class="badge blood">v4.0.0</span>
             <span class="badge amber">ARGUS VEIL</span>
             <span class="badge phosphor">10 FAPs</span>
+            <span class="badge blood">AUTHORIZED OPS ONLY</span>
           </div>
           <h1 id="hero-title">FL1PP<span class="acid">3</span>R69</h1>
           <div class="taglines">
@@ -151,6 +168,12 @@
           <p class="lead">
             Manifest-driven Flipper Zero field ops on Momentum. Named CASEFILE operations,
             SHA-256 chain-of-custody, CLAIM harness, and a desktop workbench from pocket to report.
+          </p>
+          <p class="auth-disclaimer" role="note">
+            <strong>Authorized ops only.</strong>
+            Use on hardware and systems you own or have explicit permission to test.
+            Field captures and metadata only — no exploit PoCs, no undocumented attack procedures.
+            <a href="#ethics">Read the rules</a>.
           </p>
           <div class="actions">
             <a class="btn btn-primary" href="https://github.com/Pitchfork-and-Torch/Fl1pp3r69" target="_blank" rel="noopener noreferrer">View on GitHub</a>
@@ -343,15 +366,16 @@
         <p class="eyebrow">Non-negotiable</p>
         <h2 id="ethics-title">Ethics and responsibility</h2>
         <p class="warning">
-          Owned hardware and authorized targets only. Not a toy for trespass.
-          Field responsibility required.
+          Authorized ops only. Owned hardware and authorized targets.
+          Not a toy for trespass. Field responsibility required.
         </p>
         <ol class="ethics-list">
-          <li><span class="n">1</span><span>Field captures and metadata only - no exploit code</span></li>
-          <li><span class="n">2</span><span>Authorized research on owned hardware only</span></li>
-          <li><span class="n">3</span><span>No jamming / region bypass / ungated bruteforce</span></li>
-          <li><span class="n">4</span><span>Panic wipe = operation metadata only</span></li>
-          <li><span class="n">5</span><span>Deliberate exfil only</span></li>
+          <li><span class="n">1</span><span>Authorized ops only — owned hardware or explicit written permission</span></li>
+          <li><span class="n">2</span><span>Field captures and metadata only — no exploit code or exploit PoCs</span></li>
+          <li><span class="n">3</span><span>No undocumented attack procedures</span></li>
+          <li><span class="n">4</span><span>No jamming / region bypass / ungated bruteforce</span></li>
+          <li><span class="n">5</span><span>Panic wipe = operation metadata only</span></li>
+          <li><span class="n">6</span><span>Deliberate exfil only</span></li>
         </ol>
         <p class="ethics-foot">Pitchfork-and-Torch | field responsibility required</p>
       </div>
@@ -440,7 +464,7 @@ python -m flipper69 dashboard</pre>
       </div>
       <details>
         <summary>What is Fl1pp3r69?</summary>
-        <p>Open-source Flipper Zero field-ops suite (ARGUS VEIL v4.0.0) on Momentum: CASEFILE operations, 10 FAPs, CLAIM harness, desktop seal and dashboard.</p>
+        <p>Open-source Flipper Zero field-ops suite (ARGUS VEIL v4.0.0) on Momentum: CASEFILE operations, 10 FAPs, CLAIM harness, desktop seal and dashboard. Authorized ops only.</p>
       </details>
       <details>
         <summary>What is ARGUS VEIL?</summary>
@@ -448,7 +472,15 @@ python -m flipper69 dashboard</pre>
       </details>
       <details>
         <summary>Is this for unauthorized access?</summary>
-        <p>No. Owned hardware and authorized targets only. No exploit code, jamming, or region bypass.</p>
+        <p>No. Authorized ops only. Owned hardware and authorized targets. No exploit PoCs, undocumented attack procedures, jamming, or region bypass.</p>
+      </details>
+      <details>
+        <summary>Does it ship exploit proof-of-concepts?</summary>
+        <p>No. Probes write metadata into CASEFILE ops. Stock Flipper apps still do the radio work. This repo does not publish exploit PoCs or undocumented attack procedures.</p>
+      </details>
+      <details>
+        <summary>What version is live?</summary>
+        <p>Product version is 4.0.0 ARGUS VEIL — same number on the GitHub release, FAPs, desktop toolkit, this page, and <a href="/llms.txt">llms.txt</a>. Example ops under examples/ may still show 3.0.0 because they are historical VEIL LEDGER demos.</p>
       </details>
       <details>
         <summary>Where do I get builds?</summary>
@@ -457,7 +489,6 @@ python -m flipper69 dashboard</pre>
     </section>
   </main>
 
-  <script defer src="https://hits.jonbailey.xyz/c.js" data-site="fl1pp3r69"></script>
   <footer class="site-footer">
     <div class="inner">
       <p class="footer-mythos">The dolphin grew teeth. The veil still holds. Argus opens every eye.</p>
@@ -473,13 +504,13 @@ python -m flipper69 dashboard</pre>
         <li><a href="https://jonbailey.xyz/">Jon Bailey</a></li>
       </ul>
       <p class="footer-meta">
-        MIT License · Field research on owned hardware · Do not publish exploit derivatives<br />
+        MIT License · Authorized ops only · No exploit PoCs · Do not publish exploit derivatives<br />
         &copy; <span id="year">2026</span> Pitchfork-and-Torch · fl1pp3r69.jonbailey.xyz
       </p>
     </div>
   </footer>
 
-  <script src="/js/site.js?v=4.0.0" defer></script>
+  <script src="/js/site.js?v=20260901" defer></script>
   <script src="/projects-panel.js?v=8" defer></script>
 </body>
 </html>

@@ -27,7 +27,7 @@ When in doubt: **more auditable, more deliberate, more traceable.**
 ## Minimal FAP checklist
 
 - [ ] `application.fam` with clear non-weaponized description  
-- [ ] Version aligned with suite (`3.x`)  
+- [ ] Version aligned with suite (`4.0.0` ARGUS VEIL)  
 - [ ] Sidecar includes `probe`, `ver`, `ts`  
 - [ ] Ownership/authorization UI when writing or transmitting  
 - [ ] Example plugin descriptor under `examples/plugins/`  

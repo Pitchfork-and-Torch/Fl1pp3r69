@@ -14,6 +14,8 @@ Manifest-driven Flipper Zero field ops — Momentum base, CASEFILE discipline, c
 
 `10 FAPs · v4.0.0` · `CLAIM harness` · `schema v4` · `desktop seal + dashboard`
 
+**Authorized ops only.** Use on hardware and systems you own or have explicit permission to test. Field captures and metadata only — no exploit PoCs, no undocumented attack procedures.
+
 ## What is this
 
 Stock Flipper apps capture signals. **Fl1pp3r69 captures signals inside an operation** — named, phased, hashed, claimable, and report-ready.
@@ -63,11 +65,12 @@ On device: CASEFILE → **[3] CLAIM ARTIFACT** imports the largest recent file f
 
 ## Ethics
 
-1. Field captures and metadata only — no exploit code  
-2. Authorized research on owned hardware only  
-3. No jamming / region bypass / ungated bruteforce  
-4. Panic wipe = operation metadata only  
-5. Deliberate exfil only  
+1. Authorized ops only — owned hardware or explicit written permission  
+2. Field captures and metadata only — no exploit code or exploit PoCs  
+3. No undocumented attack procedures  
+4. No jamming / region bypass / ungated bruteforce  
+5. Panic wipe = operation metadata only  
+6. Deliberate exfil only  
 
 ## Docs
 

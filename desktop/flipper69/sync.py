@@ -8,6 +8,7 @@ from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any
 
+from flipper69 import __version__
 from flipper69.hashutil import sha256_file
 from flipper69.vault import ensure_vault, operations_dir
 
@@ -21,7 +22,7 @@ def append_timeline(op_path: Path, event: str, data: dict[str, Any] | None = Non
         "ts": _utc_now(),
         "event": event,
         "source": "flipper69-desktop",
-        "ver": "3.0.0",
+        "ver": __version__,
         "data": data or {},
     }
     with (op_path / "TIMELINE.jsonl").open("a", encoding="utf-8") as f:
@@ -115,7 +116,7 @@ def import_sd(
             "ts": _utc_now(),
             "event": "sd_import",
             "source": "flipper69-desktop",
-            "ver": "3.0.0",
+            "ver": __version__,
             "data": {
                 "source": str(sd_root),
                 "verify_pass": vresult.get("pass", False),

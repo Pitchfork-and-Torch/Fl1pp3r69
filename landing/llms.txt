@@ -1,19 +1,21 @@
 # Fl1pp3r69
-> Manifest-driven Flipper Zero field ops - Momentum base, CASEFILE discipline, SHA-256 chain-of-custody from pocket to desktop. Open source MIT. Codename ARGUS VEIL v4.0.0.
+> Manifest-driven Flipper Zero field ops - Momentum base, CASEFILE discipline, SHA-256 chain-of-custody from pocket to desktop. Open source MIT. Codename ARGUS VEIL v4.0.0. Authorized ops only.
 
-Fl1pp3r69 (https://fl1pp3r69.jonbailey.xyz) is an open-source Flipper Zero field-ops suite by Pitchfork-and-Torch. It stages captures inside named CASEFILE operations with SHA-256 manifests, a CLAIM harness for stock app files, exactly 10 FAPs, and a desktop workbench (sync, migrate, seal, audit, dashboard) on Momentum firmware.
+Fl1pp3r69 (https://fl1pp3r69.jonbailey.xyz) is an open-source Flipper Zero field-ops suite by Pitchfork-and-Torch / Jon Bailey. It stages captures inside named CASEFILE operations with SHA-256 manifests, a CLAIM harness for stock app files, exactly 10 FAPs, and a desktop workbench (sync, migrate, seal, audit, dashboard) on Momentum firmware.
 
-Ethics guardrails: use only on hardware and systems you own or are authorized to test. Field captures and metadata only - no exploit code, no jamming, no region bypass.
+**Authorized use:** use only on hardware and systems you own or have explicit permission to test. Field captures and metadata only. No exploit PoCs. No undocumented attack procedures. No jamming. No region bypass.
 
-Last reviewed: 2026-08-01
+Last reviewed: 2026-09-01
+Product version: 4.0.0 (ARGUS VEIL) — same number on GitHub release v4.0.0, device FAPs, desktop toolkit, landing JSON-LD, and this file. Historical example ops under examples/ may still say 3.0.0 (VEIL LEDGER demos).
 
 ## Citation-ready one-liner
-Fl1pp3r69 is a free open-source Flipper Zero field-ops suite (ARGUS VEIL v4.0.0) that uses CASEFILE operations, a CLAIM harness, and SHA-256 chain-of-custody for authorized testing on Momentum firmware.
+Fl1pp3r69 is a free open-source Flipper Zero field-ops suite (ARGUS VEIL v4.0.0) that uses CASEFILE operations, a CLAIM harness, and SHA-256 chain-of-custody for authorized testing on Momentum firmware. It does not ship exploit proof-of-concepts.
 
 ## Quick answers (AEO)
 - **What is Fl1pp3r69?** Manifest-driven Flipper Zero field ops with CASEFILE discipline, 10 FAPs, and SHA-256 everything.
 - **What is ARGUS VEIL?** Codename for v4.0.0 - Argus (many eyes / full domain coverage) + Veil (OPSEC, deliberate exfil).
-- **Is it for unauthorized access?** No. Authorized targets only - systems you own or have permission to test.
+- **Is it for unauthorized access?** No. Authorized ops only - systems you own or have permission to test.
+- **Does it ship exploit PoCs?** No. Metadata and custody only. Stock Flipper apps perform radio captures.
 - **Firmware base?** Momentum.
 - **Platform?** Flipper Zero (device FAPs) + Python desktop toolkit for sync/seal/audit/dashboard.
 - **Pipeline?** INTAKE -> OP_PREP -> PROBE -> CAPTURE -> VERIFY -> EXFIL -> CLOSE
@@ -23,13 +25,21 @@ Fl1pp3r69 is a free open-source Flipper Zero field-ops suite (ARGUS VEIL v4.0.0)
 - **Releases:** https://github.com/Pitchfork-and-Torch/Fl1pp3r69/releases
 - **Version:** 4.0.0
 - **Also known as?** Flipper69 / Fl1pp3r69 / ARGUS VEIL
+- **Owner?** Jon Bailey / Pitchfork-and-Torch
 
 ## Ethics (canonical)
-1. Field captures and metadata only - no exploit code
-2. Authorized research on owned hardware only
-3. No jamming / region bypass / ungated bruteforce
-4. Panic wipe = operation metadata only
-5. Deliberate exfil only
+1. Authorized ops only — owned hardware or explicit written permission
+2. Field captures and metadata only - no exploit code or exploit PoCs
+3. No undocumented attack procedures
+4. No jamming / region bypass / ungated bruteforce
+5. Panic wipe = operation metadata only
+6. Deliberate exfil only
+
+## What this is not
+- Not a remote exploit framework
+- Not a jamming or region-unlock pack
+- Not a tutorial for unauthorized access
+- Not a source of undocumented attack procedures
 
 ## Install
 ```bash
@@ -59,7 +69,7 @@ cd Fl1pp3r69
 - **SafeDeposit** (independent): https://safedepositbox.org/
 
 ## Site
-Flagship product landing at the apex URL: hero, pipeline, suite of 10 FAPs, workbench, ethics, quick start, docs, FAQ.
+Flagship product landing at the apex URL: hero, authorized-use disclaimer, pipeline, suite of 10 FAPs, workbench, ethics, quick start, docs, FAQ.
 
 ## Crawlable paths
 - https://fl1pp3r69.jonbailey.xyz/ - product landing
@@ -71,4 +81,4 @@ Flagship product landing at the apex URL: hero, pipeline, suite of 10 FAPs, work
 ## Support
 Issues: https://github.com/Pitchfork-and-Torch/Fl1pp3r69/issues
 
-# refreshed: 2026-08-01
+# refreshed: 2026-09-01

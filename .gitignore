@@ -51,6 +51,7 @@ Thumbs.db
 assets/marketing/
 
 # Landing deploy cache / local wrangler state
+.wrangler/
 landing/.wrangler/
 landing/node_modules/
 

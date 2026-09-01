@@ -1,4 +1,4 @@
-# Hardware Validation Checklist (v3.0)
+# Hardware Validation Checklist (v4.0.0 ARGUS VEIL)
 
 Use a real Flipper Zero + SD + Momentum/Unleashed/stock with ufbt-built FAPs.
 

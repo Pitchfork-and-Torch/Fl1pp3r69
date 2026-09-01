@@ -1,6 +1,6 @@
 # Operational Discipline (v4.0 — ARGUS VEIL)
 
-Fl1pp3r69 applies **manifest-first field ops** to physical-layer security research on Flipper Zero. Exploit code and offensive payloads are out of scope.
+Fl1pp3r69 applies **manifest-first field ops** to physical-layer security research on Flipper Zero. **Authorized ops only.** Exploit code, exploit PoCs, and undocumented attack procedures are out of scope.
 
 ## Design patterns
 
