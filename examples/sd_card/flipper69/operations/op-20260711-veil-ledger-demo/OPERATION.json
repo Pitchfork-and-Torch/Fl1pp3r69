@@ -1,0 +1,34 @@
+{
+  "schemaVersion": 3,
+  "opId": "op-20260711-veil-ledger-demo",
+  "codename": "veil_ledger_demo",
+  "workspace": "f69_a1b2c3d4",
+  "opType": "unified",
+  "pathnum": 2,
+  "pathLabel": "ds",
+  "phase": "verify",
+  "session": 1,
+  "templateId": "survey-building",
+  "openedAt": "2026-07-11T10:00:00Z",
+  "device": {
+    "firmware": "flipper69",
+    "version": "3.0.0",
+    "codename": "FL1PP3R69",
+    "serial": "DEMO-V3",
+    "region": "US"
+  },
+  "releaseCodename": "VEIL LEDGER",
+  "target": {
+    "label": "veil-ledger-demo",
+    "authorized": true,
+    "notes": "Example v3 operation for schema and desktop toolkit demos"
+  },
+  "permissions": {
+    "opsec": true,
+    "authorized": true,
+    "txEnabled": false,
+    "replayConfirmed": false
+  },
+  "captureCount": 1,
+  "manifestHash": null
+}

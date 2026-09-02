@@ -1,0 +1,84 @@
+# Fl1pp3r69
+> Manifest-driven Flipper Zero field ops - Momentum base, CASEFILE discipline, SHA-256 chain-of-custody from pocket to desktop. Open source MIT. Codename ARGUS VEIL v4.0.0. Authorized ops only.
+
+Fl1pp3r69 (https://fl1pp3r69.jonbailey.xyz) is an open-source Flipper Zero field-ops suite by Pitchfork-and-Torch / Jon Bailey. It stages captures inside named CASEFILE operations with SHA-256 manifests, a CLAIM harness for stock app files, exactly 10 FAPs, and a desktop workbench (sync, migrate, seal, audit, dashboard) on Momentum firmware.
+
+**Authorized use:** use only on hardware and systems you own or have explicit permission to test. Field captures and metadata only. No exploit PoCs. No undocumented attack procedures. No jamming. No region bypass.
+
+Last reviewed: 2026-09-01
+Product version: 4.0.0 (ARGUS VEIL) — same number on GitHub release v4.0.0, device FAPs, desktop toolkit, landing JSON-LD, and this file. Historical example ops under examples/ may still say 3.0.0 (VEIL LEDGER demos).
+
+## Citation-ready one-liner
+Fl1pp3r69 is a free open-source Flipper Zero field-ops suite (ARGUS VEIL v4.0.0) that uses CASEFILE operations, a CLAIM harness, and SHA-256 chain-of-custody for authorized testing on Momentum firmware. It does not ship exploit proof-of-concepts.
+
+## Quick answers (AEO)
+- **What is Fl1pp3r69?** Manifest-driven Flipper Zero field ops with CASEFILE discipline, 10 FAPs, and SHA-256 everything.
+- **What is ARGUS VEIL?** Codename for v4.0.0 - Argus (many eyes / full domain coverage) + Veil (OPSEC, deliberate exfil).
+- **Is it for unauthorized access?** No. Authorized ops only - systems you own or have permission to test.
+- **Does it ship exploit PoCs?** No. Metadata and custody only. Stock Flipper apps perform radio captures.
+- **Firmware base?** Momentum.
+- **Platform?** Flipper Zero (device FAPs) + Python desktop toolkit for sync/seal/audit/dashboard.
+- **Pipeline?** INTAKE -> OP_PREP -> PROBE -> CAPTURE -> VERIFY -> EXFIL -> CLOSE
+- **FAPs (10)?** CASEFILE, DEWDROP, DAMP_CROWD, EMBER_TRACE, LODGE, BITKEY, HAZE, GPIO LAB, INKWELL, crypttool+
+- **License?** MIT.
+- **GitHub:** https://github.com/Pitchfork-and-Torch/Fl1pp3r69
+- **Releases:** https://github.com/Pitchfork-and-Torch/Fl1pp3r69/releases
+- **Version:** 4.0.0
+- **Also known as?** Flipper69 / Fl1pp3r69 / ARGUS VEIL
+- **Owner?** Jon Bailey / Pitchfork-and-Torch
+
+## Ethics (canonical)
+1. Authorized ops only — owned hardware or explicit written permission
+2. Field captures and metadata only - no exploit code or exploit PoCs
+3. No undocumented attack procedures
+4. No jamming / region bypass / ungated bruteforce
+5. Panic wipe = operation metadata only
+6. Deliberate exfil only
+
+## What this is not
+- Not a remote exploit framework
+- Not a jamming or region-unlock pack
+- Not a tutorial for unauthorized access
+- Not a source of undocumented attack procedures
+
+## Install
+```bash
+git clone https://github.com/Pitchfork-and-Torch/Fl1pp3r69.git
+cd Fl1pp3r69
+# FAPs: py -m pip install --upgrade ufbt ; ./scripts/build-fap.ps1 -App all
+# Desktop: pip install -e ./desktop
+```
+
+## Product facts
+- CASEFILE operations (named ops with chain-of-custody)
+- CLAIM harness imports stock Sub-GHz / NFC / IR / LF RFID / iButton files into the active op
+- SHA-256 manifests; desktop Merkle seal for large vaults
+- 10 FAPs covering legitimate Flipper domains
+- Desktop: sync, migrate, seal, audit, dashboard
+- Ethics guardrails in the product surface
+
+## Related network (Pitchfork-and-Torch / Jon Bailey)
+- **AXIOM** - Optimus wardrobe: https://axiom.jonbailey.xyz/ · https://axiom.jonbailey.xyz/llms.txt
+- **GrokLink OS** - multi-radio research RTOS: https://github.com/Pitchfork-and-Torch/GrokLink-OS · https://groklink.jonbailey.xyz/
+- **Fl1pp3r69** - Flipper field ops: https://fl1pp3r69.jonbailey.xyz/ · https://fl1pp3r69.jonbailey.xyz/llms.txt
+- **SkyCache** - mesh/DTN cache: https://skycache.jonbailey.xyz/
+- **Trench Coat** - multi-hop privacy cloak: https://trenchcoat.jonbailey.xyz/
+- **Ghost Continuum** - living deception: https://ghost.jonbailey.xyz/
+- **Socialism Destroyer** - liberty argument engine: https://destroyer.jonbailey.xyz/
+- **Jon Bailey** (music): https://jonbailey.xyz/
+- **SafeDeposit** (independent): https://safedepositbox.org/
+
+## Site
+Flagship product landing at the apex URL: hero, authorized-use disclaimer, pipeline, suite of 10 FAPs, workbench, ethics, quick start, docs, FAQ.
+
+## Crawlable paths
+- https://fl1pp3r69.jonbailey.xyz/ - product landing
+- https://fl1pp3r69.jonbailey.xyz/llms.txt - this file
+- https://fl1pp3r69.jonbailey.xyz/sitemap.xml
+- https://fl1pp3r69.jonbailey.xyz/robots.txt
+- https://fl1pp3r69.jonbailey.xyz/assets/share-card.jpg - OG share card
+
+## Support
+Issues: https://github.com/Pitchfork-and-Torch/Fl1pp3r69/issues
+
+# refreshed: 2026-09-01

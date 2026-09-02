@@ -1,0 +1,30 @@
+﻿{
+    "opId":  "op-20260708-sim_v2-polish-00339828",
+    "codename":  "sim_v2-polish",
+    "workspace":  ".f69_sim",
+    "opType":  "unified",
+    "pathnum":  4,
+    "pathLabel":  "fast",
+    "phase":  "OP_PREP",
+    "openedAt":  "2026-07-09T01:36:40.6122680Z",
+    "device":  {
+                   "region":  "US",
+                   "serial":  "DEV-SIM",
+                   "firmware":  "flipper69",
+                   "version":  "2.0.0",
+                   "codename":  "FL1PP3R69"
+               },
+    "target":  {
+                   "label":  "v2-polish",
+                   "authorized":  true,
+                   "notes":  "Simulated field op for manifest testing"
+               },
+    "permissions":  {
+                        "opsec":  true,
+                        "authorized":  true,
+                        "replayConfirmed":  false,
+                        "txEnabled":  false
+                    },
+    "captureCount":  0,
+    "manifestHash":  null
+}

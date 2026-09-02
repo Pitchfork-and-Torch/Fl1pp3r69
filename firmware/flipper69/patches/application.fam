@@ -1,0 +1,9 @@
+App(
+    appid="flipper69_service",
+    name="Fl1pp3r69",
+    apptype=FlipperAppType.STARTUP,
+    entry_point="flipper69_service_app",
+    requires=[],
+    order=90,
+    sdk_headers=["flipper69_opsec.h"],
+)

@@ -1,0 +1,13 @@
+App(
+    appid="flipper69_probe_gpio",
+    name="GPIO LAB",
+    apptype=FlipperAppType.EXTERNAL,
+    entry_point="probe_gpio_main",
+    requires=["storage", "gui"],
+    stack_size=2 * 1024,
+    order=30,
+    fap_version="4.0",
+    fap_description="Fl1pp3r69 GPIO LAB CASEFILE sidecar — metadata into active op",
+    fap_author="Fl1pp3r69",
+    fap_category="GPIO",
+)

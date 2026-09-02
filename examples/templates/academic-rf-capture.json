@@ -1,0 +1,21 @@
+{
+  "schemaVersion": 3,
+  "templateId": "academic-rf-capture",
+  "name": "Academic RF Capture",
+  "description": "Lab RF capture for publication with strong provenance.",
+  "opType": "survey",
+  "pathLabel": "slow",
+  "authorizationPrompt": "Confirm IRB/lab policy allows this capture, transmitters are owned or licensed, and data retention rules for research subjects are documented.",
+  "defaultAuthorized": false,
+  "suggestedProbes": ["subghz", "ir"],
+  "phases": [
+    {"phase": "intake", "checklist": ["Hypothesis / protocol ID"]},
+    {"phase": "op_prep", "checklist": ["Device serial noted"]},
+    {"phase": "probe", "checklist": ["DAMP_CROWD / EMBER sidecars"]},
+    {"phase": "capture", "checklist": ["Raw + meta"]},
+    {"phase": "verify", "checklist": ["Manifest for publication appendix"]},
+    {"phase": "exfil", "checklist": ["Vault + report HTML"]},
+    {"phase": "close", "checklist": ["Seal"]}
+  ],
+  "notesScaffold": "# Academic RF\n# Protocol:\n# Equipment:\n"
+}

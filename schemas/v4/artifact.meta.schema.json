@@ -1,0 +1,44 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://flipper69.local/schemas/v4/artifact.meta.schema.json",
+  "title": "Flipper69 Artifact Sidecar Meta v4",
+  "type": "object",
+  "required": ["probe", "ver", "domain", "ts"],
+  "properties": {
+    "probe": { "type": "string" },
+    "ver": { "type": "string" },
+    "domain": {
+      "type": "string",
+      "enum": [
+        "nfc",
+        "subghz",
+        "ir",
+        "rfid",
+        "ibutton",
+        "gpio",
+        "badusb",
+        "ble",
+        "field"
+      ]
+    },
+    "ts": { "type": "string", "format": "date-time" },
+    "opId": { "type": "string" },
+    "linkGroupId": { "type": "string" },
+    "labels": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "tx": {
+      "type": "object",
+      "properties": {
+        "attempted": { "type": "boolean" },
+        "authorized": { "type": "boolean" },
+        "regionOk": { "type": "boolean" }
+      }
+    },
+    "rollingSuspected": { "type": "boolean" },
+    "note": { "type": "string" },
+    "claimedFrom": { "type": "string" }
+  },
+  "additionalProperties": true
+}

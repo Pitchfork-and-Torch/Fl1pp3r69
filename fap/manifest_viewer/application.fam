@@ -1,0 +1,13 @@
+App(
+    appid="flipper69_manifest_viewer",
+    name="crypttool",
+    apptype=FlipperAppType.EXTERNAL,
+    entry_point="manifest_viewer_main",
+    requires=["storage", "gui"],
+    stack_size=2 * 1024,
+    order=30,
+    fap_version="4.0",
+    fap_description="Fl1pp3r69 on-device CASEFILE manifest browser / hash inspector",
+    fap_author="Fl1pp3r69",
+    fap_category="Tools",
+)
