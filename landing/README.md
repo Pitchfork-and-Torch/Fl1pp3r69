@@ -9,7 +9,7 @@ cd landing
 npx wrangler deploy -c wrangler.worker.toml
 ```
 
-Worker name: `fl1pp3r69-site` · custom domain route on `fl1pp3r69.jonbailey.xyz`.
+Worker name: `fl1pp3r69-site` / custom domain route on `fl1pp3r69.jonbailey.xyz`.
 
 ## Structure
 
@@ -25,6 +25,6 @@ Worker name: `fl1pp3r69-site` · custom domain route on `fl1pp3r69.jonbailey.xyz
 
 ## Version surface
 
-Bump cache-bust query (`?v=`) on CSS/JS/images when shipping visual changes. Use a **date stamp** (e.g. `20260901`) for assets so cache-bust does not impersonate a product release. Keep OG `share-card.jpg` + JSON-LD `softwareVersion` aligned with the tagged product (currently **4.0.0 ARGUS VEIL**).
+Bump cache-bust query (`?v=`) on CSS/JS/images when shipping visual changes. Use a **date stamp** (e.g. `20260907`) for assets so cache-bust does not impersonate a product release. Keep OG `share-card.jpg` + JSON-LD `softwareVersion` aligned with the tagged product (currently **4.0.0 ARGUS VEIL**). User-facing copy is ASCII only.
 
 Third-party analytics scripts are not allowed: CSP is `script-src 'self'`. Do not re-add `hits.jonbailey.xyz`.

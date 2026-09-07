@@ -1,6 +1,6 @@
 /**
  * Pitchfork-and-Torch - discreet projects switcher
- * Collapsed up-arrow tab → expands to sibling project links.
+ * Collapsed up-arrow tab -> expands to sibling project links.
  * Safe to load on every public site; hides the current project.
  *
  * v8 - AXIOM + GrokLink + Fl1pp3r69 + SkyCache + Trench + Ghost + Destroyer + Theater + music

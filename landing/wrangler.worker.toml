@@ -1,5 +1,5 @@
 # Production path for fl1pp3r69.jonbailey.xyz (Workers Static Assets).
-# Single deploy — do not use a separate Pages custom domain for this hostname.
+# Single deploy -- do not use a separate Pages custom domain for this hostname.
 #
 # Deploy:
 #   npx wrangler deploy -c wrangler.worker.toml

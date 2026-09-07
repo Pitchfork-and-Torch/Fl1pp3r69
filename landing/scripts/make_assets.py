@@ -2,12 +2,11 @@
 """Build production landing assets from Imagine sources (ASCII only)."""
 from __future__ import annotations
 
-import os
 from pathlib import Path
 
 from PIL import Image, ImageDraw, ImageFont
 
-DEST = Path(os.environ["USERPROFILE"]) / "Flipper69" / "landing" / "assets"
+DEST = Path(__file__).resolve().parents[1] / "assets"
 
 
 def font(size: int, bold: bool = False) -> ImageFont.FreeTypeFont | ImageFont.ImageFont:
@@ -67,7 +66,7 @@ def main() -> None:
     small = font(20, False)
 
     draw.text((56, 48), "UNCLASSIFIED // FRI", font=mono, fill=(139, 139, 139, 255))
-    draw.text((56, 88), "v4.0.0  ·  ARGUS VEIL", font=mono, fill=(255, 176, 0, 255))
+    draw.text((56, 88), "v4.0.0  /  ARGUS VEIL", font=mono, fill=(255, 176, 0, 255))
     draw.text((56, 200), "FL1PP3R69", font=title, fill=(232, 230, 227, 255))
     draw.text((56, 290), "The dolphin grew teeth.", font=sub, fill=(196, 30, 30, 255))
     draw.text(
@@ -78,13 +77,13 @@ def main() -> None:
     )
     draw.text(
         (56, 400),
-        "CASEFILE discipline  ·  10 FAPs  ·  CLAIM harness",
+        "CASEFILE discipline  /  10 FAPs  /  CLAIM harness",
         font=small,
         fill=(57, 255, 20, 230),
     )
     draw.text(
         (56, 540),
-        "Pitchfork-and-Torch  ·  owned hardware only",
+        "Pitchfork-and-Torch  /  owned hardware only",
         font=small,
         fill=(139, 139, 139, 255),
     )

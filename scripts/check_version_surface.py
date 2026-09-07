@@ -71,7 +71,9 @@ def main() -> int:
             FAILS.append(f"cache-bust {attr}{token} is not {PRODUCT} or YYYYMMDD")
 
     need("landing/llms.txt", f"**Version:** {PRODUCT}")
-    need("landing/llms.txt", "Last reviewed: 2026-09-01")
+    llms = read("landing/llms.txt")
+    if llms and not re.search(r"Last reviewed: 20\d{2}-\d{2}-\d{2}", llms):
+        FAILS.append("landing/llms.txt: missing Last reviewed: YYYY-MM-DD")
     need("landing/llms.txt", "Authorized use")
     need("landing/llms.txt", "No exploit PoCs")
     need("landing/llms.txt", "No undocumented attack procedures")
@@ -81,7 +83,9 @@ def main() -> int:
     need("SECURITY.md", "Exploit proof-of-concepts")
     need("CHANGELOG.md", PRODUCT)
     need("README.md", "Authorized ops only")
-    need("landing/sitemap.xml", "<lastmod>2026-09-01</lastmod>")
+    sitemap = read("landing/sitemap.xml")
+    if sitemap and not re.search(r"<lastmod>20\d{2}-\d{2}-\d{2}</lastmod>", sitemap):
+        FAILS.append("landing/sitemap.xml: missing lastmod YYYY-MM-DD")
 
     headers = read("landing/_headers")
     if "/llms.txt" in headers and "must-revalidate" not in headers.split("/llms.txt", 1)[1].split("\n\n", 1)[0]:

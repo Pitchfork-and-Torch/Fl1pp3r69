@@ -5,8 +5,8 @@ Fl1pp3r69 (https://fl1pp3r69.jonbailey.xyz) is an open-source Flipper Zero field
 
 **Authorized use:** use only on hardware and systems you own or have explicit permission to test. Field captures and metadata only. No exploit PoCs. No undocumented attack procedures. No jamming. No region bypass.
 
-Last reviewed: 2026-09-01
-Product version: 4.0.0 (ARGUS VEIL) — same number on GitHub release v4.0.0, device FAPs, desktop toolkit, landing JSON-LD, and this file. Historical example ops under examples/ may still say 3.0.0 (VEIL LEDGER demos).
+Last reviewed: 2026-09-07
+Product version: 4.0.0 (ARGUS VEIL) - same number on GitHub release v4.0.0, device FAPs, desktop toolkit, landing JSON-LD, and this file. Historical example ops under examples/ may still say 3.0.0 (VEIL LEDGER demos).
 
 ## Citation-ready one-liner
 Fl1pp3r69 is a free open-source Flipper Zero field-ops suite (ARGUS VEIL v4.0.0) that uses CASEFILE operations, a CLAIM harness, and SHA-256 chain-of-custody for authorized testing on Momentum firmware. It does not ship exploit proof-of-concepts.
@@ -28,7 +28,7 @@ Fl1pp3r69 is a free open-source Flipper Zero field-ops suite (ARGUS VEIL v4.0.0)
 - **Owner?** Jon Bailey / Pitchfork-and-Torch
 
 ## Ethics (canonical)
-1. Authorized ops only — owned hardware or explicit written permission
+1. Authorized ops only - owned hardware or explicit written permission
 2. Field captures and metadata only - no exploit code or exploit PoCs
 3. No undocumented attack procedures
 4. No jamming / region bypass / ungated bruteforce
@@ -58,9 +58,9 @@ cd Fl1pp3r69
 - Ethics guardrails in the product surface
 
 ## Related network (Pitchfork-and-Torch / Jon Bailey)
-- **AXIOM** - Optimus wardrobe: https://axiom.jonbailey.xyz/ · https://axiom.jonbailey.xyz/llms.txt
-- **GrokLink OS** - multi-radio research RTOS: https://github.com/Pitchfork-and-Torch/GrokLink-OS · https://groklink.jonbailey.xyz/
-- **Fl1pp3r69** - Flipper field ops: https://fl1pp3r69.jonbailey.xyz/ · https://fl1pp3r69.jonbailey.xyz/llms.txt
+- **AXIOM** - Optimus wardrobe: https://axiom.jonbailey.xyz/ / https://axiom.jonbailey.xyz/llms.txt
+- **GrokLink OS** - multi-radio research RTOS: https://github.com/Pitchfork-and-Torch/GrokLink-OS / https://groklink.jonbailey.xyz/
+- **Fl1pp3r69** - Flipper field ops: https://fl1pp3r69.jonbailey.xyz/ / https://fl1pp3r69.jonbailey.xyz/llms.txt
 - **SkyCache** - mesh/DTN cache: https://skycache.jonbailey.xyz/
 - **Trench Coat** - multi-hop privacy cloak: https://trenchcoat.jonbailey.xyz/
 - **Ghost Continuum** - living deception: https://ghost.jonbailey.xyz/
@@ -81,4 +81,4 @@ Flagship product landing at the apex URL: hero, authorized-use disclaimer, pipel
 ## Support
 Issues: https://github.com/Pitchfork-and-Torch/Fl1pp3r69/issues
 
-# refreshed: 2026-09-01
+# refreshed: 2026-09-07
