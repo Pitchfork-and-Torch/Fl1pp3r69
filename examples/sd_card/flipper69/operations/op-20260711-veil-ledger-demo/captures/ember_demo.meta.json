@@ -1,0 +1,8 @@
+{
+  "probe": "ember_trace",
+  "ver": "3.0.0",
+  "protocol": "NEC",
+  "note": "example sidecar for VEIL LEDGER demo",
+  "txNote": "authorized owned hardware only",
+  "ts": "2026-07-11T10:05:00Z"
+}

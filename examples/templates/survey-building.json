@@ -1,0 +1,21 @@
+{
+  "schemaVersion": 3,
+  "templateId": "survey-building",
+  "name": "Building RF/NFC Survey",
+  "description": "Authorized passive survey of a scoped facility footprint.",
+  "opType": "survey",
+  "pathLabel": "ds",
+  "authorizationPrompt": "Confirm you have written authorization to survey this site and will only capture passive metadata on approved systems.",
+  "defaultAuthorized": false,
+  "suggestedProbes": ["subghz", "nfc", "ir"],
+  "phases": [
+    {"phase": "intake", "checklist": ["Scope document ready", "PATHNUM chosen"]},
+    {"phase": "op_prep", "checklist": ["OPSEC on", "notes scaffold"]},
+    {"phase": "probe", "checklist": ["DEWDROP / DAMP_CROWD / EMBER as needed"]},
+    {"phase": "capture", "checklist": ["Files in captures/"]},
+    {"phase": "verify", "checklist": ["Manifest PASS"]},
+    {"phase": "exfil", "checklist": ["Deliberate SD or USB"]},
+    {"phase": "close", "checklist": ["Seal op"]}
+  ],
+  "notesScaffold": "# Building survey\n# Scope:\n# Auth ref:\n"
+}

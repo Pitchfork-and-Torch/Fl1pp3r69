@@ -1,0 +1,22 @@
+name: surface-check
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  version-and-aeo:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Honest version + authorized-use surface
+        run: python scripts/check_version_surface.py
+      - name: Desktop tests (includes version receipts)
+        run: |
+          python -m pip install --upgrade pip
+          pip install -e "./desktop[dev]"
+          pytest -q desktop/tests

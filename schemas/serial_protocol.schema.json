@@ -1,0 +1,70 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://flipper69.local/schemas/serial_protocol.schema.json",
+  "title": "Flipper69 Serial Exfil Protocol",
+  "description": "JSON-lines messages over USB CDC 115200",
+  "oneOf": [
+    {
+      "type": "object",
+      "required": ["type", "opId"],
+      "properties": {
+        "type": { "const": "op_header" },
+        "opId": { "type": "string" },
+        "opType": { "type": "string" },
+        "phase": { "type": "string" },
+        "schemaVersion": { "type": "integer" },
+        "firmwareVersion": { "type": "string" }
+      }
+    },
+    {
+      "type": "object",
+      "required": ["type", "opId", "items"],
+      "properties": {
+        "type": { "const": "manifest" },
+        "opId": { "type": "string" },
+        "generatedAt": { "type": "string" },
+        "items": { "type": "array" },
+        "chainPrev": { "type": ["string", "null"] },
+        "verifyCount": { "type": "integer" }
+      }
+    },
+    {
+      "type": "object",
+      "required": ["type", "opId", "path", "sha256"],
+      "properties": {
+        "type": { "const": "artifact" },
+        "opId": { "type": "string" },
+        "path": { "type": "string" },
+        "sha256": { "type": "string" },
+        "b64": { "type": "string" }
+      }
+    },
+    {
+      "type": "object",
+      "required": ["type", "opId"],
+      "properties": {
+        "type": { "const": "op_close" },
+        "opId": { "type": "string" },
+        "manifestHash": { "type": "string" }
+      }
+    },
+    {
+      "type": "object",
+      "required": ["type"],
+      "properties": {
+        "type": { "enum": ["ping", "pong"] },
+        "ts": { "type": "string" }
+      }
+    },
+    {
+      "type": "object",
+      "required": ["type", "opId", "status"],
+      "properties": {
+        "type": { "const": "ack" },
+        "opId": { "type": "string" },
+        "status": { "type": "string" },
+        "desktopPath": { "type": "string" }
+      }
+    }
+  ]
+}

@@ -1,0 +1,21 @@
+{
+  "schemaVersion": 3,
+  "templateId": "badge-lab",
+  "name": "Owned Badge Lab",
+  "description": "Lab work on badges/tags you own (read/write/emulate).",
+  "opType": "proximity",
+  "pathLabel": "slow",
+  "authorizationPrompt": "Confirm every tag involved is owned by you or explicitly authorized for destructive/write testing. Bank cards and secure elements are out of scope.",
+  "defaultAuthorized": false,
+  "suggestedProbes": ["nfc"],
+  "phases": [
+    {"phase": "intake", "checklist": ["Inventory owned tags"]},
+    {"phase": "op_prep", "checklist": ["OPSEC on"]},
+    {"phase": "probe", "checklist": ["DEWDROP only"]},
+    {"phase": "capture", "checklist": ["UID + meta sidecars"]},
+    {"phase": "verify", "checklist": ["Hash seal"]},
+    {"phase": "exfil", "checklist": ["Vault import"]},
+    {"phase": "close", "checklist": ["Seal"]}
+  ],
+  "notesScaffold": "# Badge lab\n# Tag inventory:\n"
+}

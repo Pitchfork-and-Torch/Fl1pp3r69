@@ -1,0 +1,58 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://flipper69.local/schemas/manifest.schema.json",
+  "title": "Flipper69 CASEFILE Manifest",
+  "description": "SHA-256 integrity manifest for field operations (v3 VEIL LEDGER)",
+  "type": "object",
+  "required": ["generatedAt", "opId", "items", "firmware"],
+  "properties": {
+    "schemaVersion": {
+      "type": "integer",
+      "minimum": 2,
+      "maximum": 3
+    },
+    "generatedAt": { "type": "string", "format": "date-time" },
+    "opId": { "type": "string" },
+    "firmware": { "type": "string", "const": "flipper69" },
+    "firmwareVersion": { "type": "string" },
+    "releaseCodename": { "type": "string" },
+    "classification": { "type": "string" },
+    "verifyCount": {
+      "type": "integer",
+      "minimum": 1,
+      "description": "Number of VERIFY seals including this one"
+    },
+    "chainPrev": {
+      "type": ["string", "null"],
+      "pattern": "^[a-f0-9]{64}$",
+      "description": "SHA-256 of previous manifest body; null on first VERIFY"
+    },
+    "items": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["type", "path", "hash"],
+        "properties": {
+          "type": {
+            "type": "string",
+            "enum": ["capture", "metadata", "timeline", "notes", "script", "checkpoint", "operation"]
+          },
+          "path": { "type": "string" },
+          "hash": {
+            "type": ["string", "null"],
+            "pattern": "^[a-f0-9]{64}$"
+          },
+          "probe": {
+            "type": "string",
+            "enum": [
+              "subghz", "nfc", "ir", "badusb", "gpio", "ble", "field",
+              "dewdrop", "dampcrowd", "ember", "ember_trace"
+            ]
+          },
+          "sizeBytes": { "type": "integer", "minimum": 0 }
+        }
+      }
+    }
+  },
+  "additionalProperties": true
+}
