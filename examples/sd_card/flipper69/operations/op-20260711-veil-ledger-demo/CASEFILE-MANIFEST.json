@@ -1,0 +1,44 @@
+{
+  "schemaVersion": 3,
+  "generatedAt": "2026-07-11T10:15:00Z",
+  "opId": "op-20260711-veil-ledger-demo",
+  "firmware": "flipper69",
+  "firmwareVersion": "3.0.0",
+  "releaseCodename": "VEIL LEDGER",
+  "classification": "UNCLASSIFIED//FRI",
+  "verifyCount": 1,
+  "chainPrev": null,
+  "items": [
+    {
+      "type": "operation",
+      "path": "OPERATION.json",
+      "hash": "95fb32e770df5a64c2421cf408246ee35312669c526ebeaa994dc30ac485c979",
+      "sizeBytes": 797
+    },
+    {
+      "type": "timeline",
+      "path": "TIMELINE.jsonl",
+      "hash": "0e15b42ee412598eb92fa041555e2a04b8ec733c6cc09173762e554a174be7c5",
+      "sizeBytes": 586
+    },
+    {
+      "type": "notes",
+      "path": "notes.txt",
+      "hash": "36b272a2cd25e11ff17640bd48e30df20b7dcfb0a18ddd3369f29177cfe62a5a",
+      "sizeBytes": 118
+    },
+    {
+      "type": "checkpoint",
+      "path": "CHECKPOINT.json",
+      "hash": "b8a1bb4ae9226c15ba40a96d1bc870bb4b00e7bb2d479defff89dbe09e79abc1",
+      "sizeBytes": 165
+    },
+    {
+      "type": "capture",
+      "path": "captures/ember_demo.meta.json",
+      "hash": "9b64f9345b63a700c3de01c18aeecd659e6a8ad02d559021480eab7846714e63",
+      "sizeBytes": 196,
+      "probe": "ember_trace"
+    }
+  ]
+}

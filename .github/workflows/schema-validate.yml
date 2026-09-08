@@ -1,0 +1,44 @@
+name: schema-validate
+
+on:
+  push:
+    paths:
+      - "schemas/**"
+      - "examples/**"
+  pull_request:
+    paths:
+      - "schemas/**"
+      - "examples/**"
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install jsonschema
+        run: pip install jsonschema
+      - name: Validate templates against schema
+        run: |
+          python <<'PY'
+          import json
+          from pathlib import Path
+          from jsonschema import Draft202012Validator
+
+          schema = json.loads(Path("schemas/template.schema.json").read_text())
+          v = Draft202012Validator(schema)
+          for p in Path("examples/templates").glob("*.json"):
+              data = json.loads(p.read_text())
+              errs = sorted(v.iter_errors(data), key=lambda e: e.path)
+              assert not errs, f"{p}: {errs}"
+              print("OK", p)
+          plugin_schema = json.loads(Path("schemas/probe.plugin.schema.json").read_text())
+          pv = Draft202012Validator(plugin_schema)
+          for p in Path("examples/plugins").glob("*.json"):
+              data = json.loads(p.read_text())
+              errs = sorted(pv.iter_errors(data), key=lambda e: e.path)
+              assert not errs, f"{p}: {errs}"
+              print("OK", p)
+          PY

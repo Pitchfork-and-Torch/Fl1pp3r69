@@ -1,0 +1,25 @@
+{
+  "name": "Fl1pp3r69",
+  "version": "2.0.0",
+  "author": "Fl1pp3r69",
+  "description": "Obsidian field instrument — blood red accents, phosphor green verified, amber warnings",
+  "tagline": "the dolphin grew teeth",
+  "palette": {
+    "background": "#0a0a0c",
+    "surface": "#121218",
+    "accent": "#c41e1e",
+    "verified": "#39ff14",
+    "warning": "#ffb000",
+    "inactive": "#8b8b8b",
+    "phosphor": "#39ff14",
+    "blood": "#c41e1e"
+  },
+  "desktop": {
+    "show_clock": true,
+    "battery_view": "percent",
+    "animation": "flipper69_glitch_boot",
+    "status_icons": true
+  },
+  "icons_pack": "flipper69_obsidian",
+  "classification": "UNCLASSIFIED//FRI"
+}
