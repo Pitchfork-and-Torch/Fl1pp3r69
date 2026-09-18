@@ -11,10 +11,16 @@ from flipper69.vault import iter_ops, read_manifest, read_operation
 
 
 def list_capture_files(op_dir: Path) -> list[Path]:
-    cap = op_dir / "captures"
-    if not cap.is_dir():
-        return []
-    return [p for p in cap.rglob("*") if p.is_file() and not p.name.startswith(".")]
+    """Field leaves under captures/ (legacy) and artifacts/ (v4 ARGUS VEIL)."""
+    files: list[Path] = []
+    for sub in ("captures", "artifacts"):
+        root = op_dir / sub
+        if not root.is_dir():
+            continue
+        for p in root.rglob("*"):
+            if p.is_file() and not p.name.startswith("."):
+                files.append(p)
+    return files
 
 
 def audit_op(op_dir: Path) -> dict[str, Any]:
@@ -36,7 +42,7 @@ def audit_op(op_dir: Path) -> dict[str, Any]:
         for m in verify["missing"]:
             issues.append(f"missing artifact: {m}")
 
-    # orphan captures not listed in manifest (include chunked part items)
+    # orphan field files not listed in manifest (captures/ + artifacts/; chunked parts OK)
     listed: set[str] = set()
     if man:
         for item in resolve_manifest_items(op_dir, man):
@@ -49,7 +55,7 @@ def audit_op(op_dir: Path) -> dict[str, Any]:
         if rel not in listed:
             orphans.append(rel)
     if orphans:
-        warnings.append(f"{len(orphans)} orphan capture(s) not in manifest")
+        warnings.append(f"{len(orphans)} orphan field file(s) not in manifest")
 
     schema = None
     if man and "schemaVersion" in man:

@@ -213,3 +213,22 @@ def test_reseal_skips_stale_part_files(vault: Path):
     resolved = resolve_manifest_items(path, man)
     assert not any(str(i.get("path", "")).startswith("manifests/parts/") for i in resolved)
 
+def test_audit_flags_artifact_orphans(vault: Path):
+    """v4 field leaves live under artifacts/; orphan scan must not miss them."""
+    from flipper69.seal import seal_op
+
+    path = apply_template(
+        "badge-lab",
+        label="art-orphan",
+        ops_root=vault,
+        acknowledge_auth=True,
+    )
+    seal_op(path, merkle=True)
+    art = path / "artifacts" / "field"
+    art.mkdir(parents=True, exist_ok=True)
+    orphan = art / "loose.bin"
+    orphan.write_bytes(b"not-in-manifest")
+    report = audit_op(path)
+    assert "artifacts/field/loose.bin" in report["orphans"]
+    assert any("orphan field file" in w for w in report["warnings"])
+
