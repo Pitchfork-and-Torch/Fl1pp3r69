@@ -11,9 +11,9 @@ from flipper69.sync import resolve_manifest_items
 from flipper69.vault import read_manifest, read_operation
 
 
-REDACT_SKIP_NAMES = {"notes.txt"}
+REDACT_SKIP_NAMES = {"notes.txt", "TIMELINE.jsonl"}
 # v4 field leaves live under artifacts/<domain>/; claim receipts under claims/.
-# Share-safe packs must omit raw field leaves and claim receipts.
+# Share-safe packs must omit raw field leaves, claim receipts, and the event log.
 REDACT_SKIP_PREFIX = ("captures/", "artifacts/")
 
 
@@ -63,7 +63,7 @@ def pack_op(
             )
             zf.writestr(
                 f"{op_dir.name}/REDACT.txt",
-                "Share-safe pack: notes, claim receipts, and raw captures/artifacts omitted; hashes preserved where present.\n",
+                "Share-safe pack: notes, timeline, claim receipts, and raw captures/artifacts omitted; hashes preserved where present.\n",
             )
         # root hash of zip contents listing
         listing = "\n".join(sorted(r for r, _ in files))

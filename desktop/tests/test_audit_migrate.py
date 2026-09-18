@@ -264,3 +264,29 @@ def test_pack_redact_omits_artifacts(vault: Path, tmp_path: Path):
     assert any(n.endswith("raw.sub.meta.json") for n in names)
     assert not any(n.endswith("notes.txt") for n in names)
     assert not any("/claims/" in n or n.endswith("receipt.json") for n in names)
+
+
+def test_pack_redact_omits_timeline(vault: Path):
+    """Share-safe packs must omit TIMELINE.jsonl event payloads."""
+    from flipper69.pack import pack_op
+    import zipfile
+
+    path = apply_template(
+        "badge-lab",
+        label="redact-timeline",
+        ops_root=vault,
+        acknowledge_auth=True,
+    )
+    (path / "TIMELINE.jsonl").write_text(
+        '{"ts":"2026-01-01T00:00:00Z","event":"NOTE","data":{"secret":"x"}}\n',
+        encoding="utf-8",
+    )
+    (path / "notes.txt").write_text("private\n", encoding="utf-8")
+    out = vault / "redact-timeline.f69pack.zip"
+    pack_op(path, out, redact=True)
+    with zipfile.ZipFile(out) as zf:
+        names = [n.split("/", 1)[-1] for n in zf.namelist()]
+    assert "TIMELINE.jsonl" not in names
+    assert "notes.txt" not in names
+    assert "OPERATION.json" in names
+    assert "REDACT.txt" in names
