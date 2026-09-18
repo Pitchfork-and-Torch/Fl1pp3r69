@@ -1,0 +1,4 @@
+[submodule "firmware/momentum"]
+	path = firmware/momentum
+	url = https://github.com/Next-Flip/Momentum-Firmware.git
+	branch = dev
