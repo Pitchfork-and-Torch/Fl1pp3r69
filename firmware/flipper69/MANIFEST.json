@@ -1,0 +1,38 @@
+{
+  "distro": "flipper69",
+  "version": "4.0.0",
+  "releaseCodename": "ARGUS VEIL",
+  "classification": "UNCLASSIFIED//FRI",
+  "tagline": "the dolphin grew teeth · veil holds · argus opens every eye",
+  "upstream": {
+    "name": "Momentum-Firmware",
+    "repo": "https://github.com/Next-Flip/Momentum-Firmware.git",
+    "branch": "dev",
+    "sha": "8ed809fba8af7ac3f09b9495a597d8963f9178a8",
+    "inherits": ["flipperdevices/flipperzero-firmware", "DarkFlippers/unleashed-firmware"]
+  },
+  "excluded_features": [
+    "subghz_jamming",
+    "tx_region_bypass",
+    "ungated_bruteforce",
+    "rogue_plugin_soup",
+    "dynamic_exploit_loaders"
+  ],
+  "faps": [
+    {"appid": "flipper69_casefile_ops", "source": "fap/casefile_ops", "version": "4.0"},
+    {"appid": "flipper69_probe_nfc", "source": "fap/probe_nfc", "version": "4.0"},
+    {"appid": "flipper69_probe_subghz", "source": "fap/probe_subghz", "version": "4.0"},
+    {"appid": "flipper69_probe_ir", "source": "fap/probe_ir", "version": "4.0"},
+    {"appid": "flipper69_probe_rfid", "source": "fap/probe_rfid", "version": "4.0"},
+    {"appid": "flipper69_probe_ibutton", "source": "fap/probe_ibutton", "version": "4.0"},
+    {"appid": "flipper69_probe_ble", "source": "fap/probe_ble", "version": "4.0"},
+    {"appid": "flipper69_probe_gpio", "source": "fap/probe_gpio", "version": "4.0"},
+    {"appid": "flipper69_probe_badusb", "source": "fap/probe_badusb", "version": "4.0"},
+    {"appid": "flipper69_manifest_viewer", "source": "fap/manifest_viewer", "version": "4.0"}
+  ],
+  "desktop": {
+    "package": "desktop/flipper69",
+    "version": "4.0.0",
+    "commands": ["sync", "audit", "seal", "report", "migrate", "template", "pack", "dashboard", "list", "timeline", "tui"]
+  }
+}
