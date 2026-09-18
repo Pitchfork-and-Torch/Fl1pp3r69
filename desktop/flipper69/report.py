@@ -9,6 +9,7 @@ from typing import Any
 
 from flipper69 import __classification__, __release__, __version__
 from flipper69.audit import audit_op
+from flipper69.sync import resolve_manifest_items
 from flipper69.vault import read_manifest, read_operation, read_timeline
 
 
@@ -24,9 +25,8 @@ def build_report_html(op_dir: Path) -> str:
     now = datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
 
     items_rows = []
-    for item in man.get("items") or []:
-        if not isinstance(item, dict):
-            continue
+    # Chunked seals leave items=[] and spill leaves into parts — same resolver as audit/verify.
+    for item in resolve_manifest_items(op_dir, man):
         items_rows.append(
             "<tr>"
             f"<td>{_esc(item.get('type'))}</td>"

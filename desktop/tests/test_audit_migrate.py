@@ -165,3 +165,25 @@ def test_chunked_manifest_verify(vault: Path):
     report = audit_op(path)
     assert any("captures/c00.bin" in i for i in report["issues"])
     assert report["orphans"] == []
+
+
+def test_chunked_report_lists_part_items(vault: Path):
+    """HTML report must list leaves from chunked part manifests, not 'No manifest items'."""
+    from flipper69.seal import seal_op
+
+    path = apply_template(
+        "badge-lab",
+        label="chunk-report",
+        ops_root=vault,
+        acknowledge_auth=True,
+    )
+    (path / "captures").mkdir(exist_ok=True)
+    for i in range(20):
+        (path / "captures" / f"c{i:02d}.bin").write_bytes(b"payload-%d" % i)
+    result = seal_op(path, merkle=True, chunk_size=5)
+    assert result["chunked"] is True
+    html = build_report_html(path)
+    assert "No manifest items" not in html
+    assert "captures/c00.bin" in html
+    assert "captures/c19.bin" in html
+

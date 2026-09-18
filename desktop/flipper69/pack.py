@@ -7,6 +7,7 @@ import zipfile
 from pathlib import Path
 
 from flipper69.hashutil import sha256_file
+from flipper69.sync import resolve_manifest_items
 from flipper69.vault import read_manifest, read_operation
 
 
@@ -68,5 +69,5 @@ def pack_op(
         "sha256": sha256_file(out_zip),
         "redact": redact,
         "opId": op_dir.name,
-        "manifestItems": len(man.get("items") or []),
+        "manifestItems": len(resolve_manifest_items(op_dir, man)),
     }
