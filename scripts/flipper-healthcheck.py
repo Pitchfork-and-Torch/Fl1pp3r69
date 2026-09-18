@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""USB health check for Flipper Zero + Fl1pp3r69 v2 install."""
+"""USB health check for Flipper Zero + Fl1pp3r69 v4 (ARGUS VEIL) install."""
 import os
 import sys
 
@@ -11,12 +11,18 @@ sys.path.insert(0, str(ufbt_scripts))
 from flipper.storage import FlipperStorage
 from flipper.utils.cdc import resolve_port
 
-F69_VER = "2.0.0"
+F69_VER = "4.0.0"
 PORT = os.environ.get("FLIPPER_PORT", "auto")
 FAPS = [
     "/ext/apps/flipper69_casefile_ops.fap",
     "/ext/apps/NFC/flipper69_probe_nfc.fap",
     "/ext/apps/flipper69_probe_subghz.fap",
+    "/ext/apps/flipper69_probe_ir.fap",
+    "/ext/apps/flipper69_probe_rfid.fap",
+    "/ext/apps/flipper69_probe_ibutton.fap",
+    "/ext/apps/flipper69_probe_ble.fap",
+    "/ext/apps/flipper69_probe_gpio.fap",
+    "/ext/apps/flipper69_probe_badusb.fap",
     "/ext/apps/flipper69_manifest_viewer.fap",
 ]
 OPS_ROOT = "/ext/flipper69"
@@ -105,7 +111,7 @@ def main():
 
         print("\n=== VERDICT ===")
         if ok == len(FAPS) and load_ok:
-            print(f"Healthy v{F69_VER}: USB, SD, all 4 apps, CASEFILE Ops loads.")
+            print(f"Healthy v{F69_VER}: USB, SD, all {len(FAPS)} apps, CASEFILE Ops loads.")
         elif ok == len(FAPS):
             print("Apps on SD OK; load test inconclusive — open CASEFILE Ops manually.")
         else:
