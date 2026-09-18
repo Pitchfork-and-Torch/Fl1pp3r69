@@ -1,0 +1,142 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://flipper69.local/schemas/v4/operation.schema.json",
+  "title": "Flipper69 Operation v4 (ARGUS VEIL draft)",
+  "type": "object",
+  "required": ["schemaVersion", "opId", "opType", "phase", "openedAt", "device"],
+  "properties": {
+    "schemaVersion": { "type": "integer", "const": 4 },
+    "opId": {
+      "type": "string",
+      "pattern": "^op-[0-9]{8}-[a-z0-9-]+$"
+    },
+    "codename": { "type": "string" },
+    "workspace": { "type": "string" },
+    "opType": {
+      "type": "string",
+      "enum": [
+        "proximity",
+        "survey",
+        "replay",
+        "inject",
+        "unified",
+        "lab",
+        "engagement"
+      ]
+    },
+    "pathnum": { "type": "integer", "minimum": 1, "maximum": 5 },
+    "pathLabel": {
+      "type": "string",
+      "enum": ["imps", "ds", "slow", "fast", "emerg"]
+    },
+    "phase": {
+      "type": "string",
+      "enum": [
+        "intake",
+        "op_prep",
+        "probe",
+        "capture",
+        "verify",
+        "exfil",
+        "close"
+      ]
+    },
+    "session": { "type": "integer", "minimum": 1 },
+    "sessions": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "openedAt"],
+        "properties": {
+          "id": { "type": "integer", "minimum": 1 },
+          "openedAt": { "type": "string", "format": "date-time" },
+          "closedAt": { "type": ["string", "null"], "format": "date-time" }
+        }
+      }
+    },
+    "domainFocus": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "nfc",
+          "subghz",
+          "ir",
+          "rfid",
+          "ibutton",
+          "gpio",
+          "badusb",
+          "ble",
+          "field"
+        ]
+      }
+    },
+    "templateId": { "type": ["string", "null"] },
+    "campaignId": { "type": ["string", "null"] },
+    "operatorId": { "type": ["string", "null"] },
+    "roePath": { "type": ["string", "null"] },
+    "artifactRoot": {
+      "type": "string",
+      "enum": ["artifacts", "captures"]
+    },
+    "releaseCodename": { "type": "string" },
+    "openedAt": { "type": "string", "format": "date-time" },
+    "closedAt": { "type": ["string", "null"], "format": "date-time" },
+    "device": {
+      "type": "object",
+      "required": ["firmware"],
+      "properties": {
+        "firmware": { "type": "string", "const": "flipper69" },
+        "version": { "type": "string" },
+        "codename": { "type": "string" },
+        "serial": { "type": "string" },
+        "region": { "type": "string" }
+      }
+    },
+    "target": {
+      "type": "object",
+      "properties": {
+        "label": { "type": "string" },
+        "notes": { "type": "string" },
+        "authorized": { "type": "boolean", "default": false }
+      }
+    },
+    "gates": {
+      "type": "object",
+      "properties": {
+        "requireAuthForTx": { "type": "boolean" },
+        "requireCaptureBeforeVerify": { "type": "boolean" }
+      }
+    },
+    "seal": {
+      "type": "object",
+      "properties": {
+        "alg": {
+          "type": "string",
+          "enum": ["sha256", "sha256-merkle-v1"]
+        },
+        "manifestPath": { "type": "string" },
+        "merkleRoot": {
+          "type": ["string", "null"],
+          "pattern": "^[a-f0-9]{64}$"
+        },
+        "itemCount": { "type": "integer", "minimum": 0 }
+      }
+    },
+    "captureCount": { "type": "integer", "minimum": 0 },
+    "manifestHash": {
+      "type": ["string", "null"],
+      "pattern": "^[a-f0-9]{64}$"
+    },
+    "permissions": {
+      "type": "object",
+      "properties": {
+        "opsec": { "type": "boolean" },
+        "authorized": { "type": "boolean" },
+        "txEnabled": { "type": "boolean" },
+        "replayConfirmed": { "type": "boolean" }
+      }
+    }
+  },
+  "additionalProperties": true
+}
