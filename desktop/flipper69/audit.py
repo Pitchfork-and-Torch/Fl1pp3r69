@@ -6,7 +6,7 @@ from pathlib import Path
 from typing import Any
 
 from flipper69.hashutil import sha256_file
-from flipper69.sync import verify_manifest_items
+from flipper69.sync import resolve_manifest_items, verify_manifest_items
 from flipper69.vault import iter_ops, read_manifest, read_operation
 
 
@@ -36,11 +36,11 @@ def audit_op(op_dir: Path) -> dict[str, Any]:
         for m in verify["missing"]:
             issues.append(f"missing artifact: {m}")
 
-    # orphan captures not listed in manifest
+    # orphan captures not listed in manifest (include chunked part items)
     listed: set[str] = set()
     if man:
-        for item in man.get("items") or []:
-            if isinstance(item, dict) and item.get("path"):
+        for item in resolve_manifest_items(op_dir, man):
+            if item.get("path"):
                 listed.add(str(item["path"]).replace("\\", "/"))
 
     orphans: list[str] = []
@@ -81,7 +81,6 @@ def audit_op(op_dir: Path) -> dict[str, Any]:
 
 def audit_vault(ops_root: Path | None = None) -> dict[str, Any]:
     reports = [audit_op(p) for p in iter_ops(ops_root)]
-    # conflict detection: same opId only once on disk; check hash collisions across copies N/A
     passed = sum(1 for r in reports if r["status"] == "PASS")
     failed = sum(1 for r in reports if r["status"] == "FAIL")
     return {

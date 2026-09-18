@@ -133,3 +133,35 @@ def test_seal_merkle(vault: Path):
     report = audit_op(path)
     # OPERATION may change after seal; re-seal consistency: manifest items should match files
     assert "merkleRoot" in (result)
+
+def test_chunked_manifest_verify(vault: Path):
+    """Chunked seals store items in parts; verify must not vacuously pass."""
+    from flipper69.seal import seal_op
+    from flipper69.sync import resolve_manifest_items, verify_manifest_items
+    from flipper69.vault import load_json
+
+    path = apply_template(
+        "badge-lab",
+        label="chunk-verify",
+        ops_root=vault,
+        acknowledge_auth=True,
+    )
+    (path / "captures").mkdir(exist_ok=True)
+    for i in range(40):
+        (path / "captures" / f"c{i:02d}.bin").write_bytes(b"payload-%d" % i)
+    result = seal_op(path, merkle=True, chunk_size=8)
+    assert result["chunked"] is True
+    man = load_json(path / "CASEFILE-MANIFEST.json")
+    assert isinstance(man, dict)
+    assert not (man.get("items") or [])
+    assert man.get("parts")
+    resolved = resolve_manifest_items(path, man)
+    assert len(resolved) >= 40
+    v = verify_manifest_items(path, man)
+    assert v["ok"] >= 40
+    (path / "captures" / "c00.bin").write_bytes(b"tampered")
+    v2 = verify_manifest_items(path, man)
+    assert "captures/c00.bin" in v2["mismatch"]
+    report = audit_op(path)
+    assert any("captures/c00.bin" in i for i in report["issues"])
+    assert report["orphans"] == []

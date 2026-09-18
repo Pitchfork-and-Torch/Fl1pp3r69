@@ -29,14 +29,57 @@ def append_timeline(op_path: Path, event: str, data: dict[str, Any] | None = Non
         f.write(json.dumps(line, separators=(",", ":")) + "\n")
 
 
+def resolve_manifest_items(op_path: Path, manifest: dict[str, Any]) -> list[dict[str, Any]]:
+    """Inline items, or flatten chunked part manifests when items were spilled."""
+    raw = manifest.get("items") or []
+    items = [i for i in raw if isinstance(i, dict)]
+    if items:
+        return items
+    parts = manifest.get("parts") or []
+    resolved: list[dict[str, Any]] = []
+    for part in parts:
+        if not isinstance(part, dict):
+            continue
+        rel = part.get("path")
+        if not rel:
+            continue
+        part_file = op_path / str(rel)
+        if not part_file.is_file():
+            continue
+        try:
+            data = json.loads(part_file.read_text(encoding="utf-8"))
+        except (json.JSONDecodeError, OSError):
+            continue
+        if not isinstance(data, dict):
+            continue
+        for item in data.get("items") or []:
+            if isinstance(item, dict):
+                resolved.append(item)
+    return resolved
+
+
 def verify_manifest_items(op_path: Path, manifest: dict[str, Any]) -> dict[str, Any]:
     ok = 0
     mismatch: list[str] = []
     missing: list[str] = []
-    items = manifest.get("items") or []
-    for item in items:
-        if not isinstance(item, dict):
+    items = resolve_manifest_items(op_path, manifest)
+    for part in manifest.get("parts") or []:
+        if not isinstance(part, dict):
             continue
+        rel = part.get("path")
+        expected = part.get("hash")
+        if not rel or not expected:
+            continue
+        art = op_path / str(rel)
+        if not art.is_file():
+            missing.append(str(rel))
+            continue
+        actual = sha256_file(art)
+        if actual.lower() == str(expected).lower():
+            ok += 1
+        else:
+            mismatch.append(str(rel))
+    for item in items:
         rel = item.get("path")
         expected = item.get("hash")
         if not rel or not expected:
@@ -50,6 +93,8 @@ def verify_manifest_items(op_path: Path, manifest: dict[str, Any]) -> dict[str, 
             ok += 1
         else:
             mismatch.append(rel)
+    if (manifest.get("parts") or []) and not items and ok == 0 and not mismatch and not missing:
+        missing.append("(chunked parts unreadable)")
     return {
         "ok": ok,
         "mismatch": mismatch,
