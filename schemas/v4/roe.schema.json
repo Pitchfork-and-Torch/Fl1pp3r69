@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://flipper69.local/schemas/v4/roe.schema.json",
+  "title": "Flipper69 Rules of Engagement Snapshot v4",
+  "description": "Non-secret engagement constraints stored with the operation for CoC reports.",
+  "type": "object",
+  "required": ["schemaVersion", "engagementId", "authorizedStatement"],
+  "properties": {
+    "schemaVersion": { "type": "integer", "const": 4 },
+    "engagementId": { "type": "string", "minLength": 1 },
+    "clientOrOwner": { "type": "string" },
+    "authorizedStatement": {
+      "type": "string",
+      "minLength": 20,
+      "description": "Human statement that authorization exists; not a legal instrument."
+    },
+    "inScopeSummary": { "type": "string" },
+    "outOfScopeSummary": { "type": "string" },
+    "txAllowed": { "type": "boolean", "default": false },
+    "injectAllowed": { "type": "boolean", "default": false },
+    "validFrom": { "type": "string", "format": "date-time" },
+    "validTo": { "type": "string", "format": "date-time" },
+    "operatorIds": {
+      "type": "array",
+      "items": { "type": "string" }
+    }
+  },
+  "additionalProperties": false
+}
