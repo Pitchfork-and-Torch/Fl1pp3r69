@@ -290,3 +290,31 @@ def test_pack_redact_omits_timeline(vault: Path):
     assert "notes.txt" not in names
     assert "OPERATION.json" in names
     assert "REDACT.txt" in names
+
+def test_pack_redact_omits_scripts_and_roe(vault: Path):
+    """Share-safe packs must omit scripts/ payloads and ROE.json scope notes."""
+    from flipper69.pack import pack_op
+    import zipfile
+
+    path = apply_template(
+        "badge-lab",
+        label="redact-scripts-roe",
+        ops_root=vault,
+        acknowledge_auth=True,
+    )
+    scripts = path / "scripts"
+    scripts.mkdir(parents=True, exist_ok=True)
+    (scripts / "payload.txt").write_text("SECRET_BADUSB_SCRIPT\n", encoding="utf-8")
+    (path / "ROE.json").write_text(
+        '{"scope":"SECRET_TARGET","rules":"no cameras"}\n',
+        encoding="utf-8",
+    )
+    out = vault / "redact-scripts-roe.f69pack.zip"
+    pack_op(path, out, redact=True)
+    with zipfile.ZipFile(out) as zf:
+        names = [n.split("/", 1)[-1] for n in zf.namelist()]
+    assert "ROE.json" not in names
+    assert not any(n.startswith("scripts/") for n in names)
+    assert "OPERATION.json" in names
+    assert "REDACT.txt" in names
+
