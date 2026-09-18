@@ -36,12 +36,25 @@ def collect_sealable_files(op_dir: Path) -> list[Path]:
         p = op_dir / name
         if p.is_file():
             files.append(p)
+    skip_manifest_names = {
+        "CASEFILE-MANIFEST.json",
+        "CASEFILE-MANIFEST.prev.json",
+        "MERKLE.json",
+    }
     for sub in ("captures", "artifacts", "scripts", "claims", "manifests"):
         root = op_dir / sub
         if root.is_dir():
             for p in sorted(root.rglob("*")):
-                if p.is_file() and p.name != "CASEFILE-MANIFEST.json":
-                    files.append(p)
+                if not p.is_file():
+                    continue
+                rel = p.relative_to(op_dir).as_posix()
+                # Prior chunked seals leave part payloads under manifests/parts/.
+                # Re-sealing must not ingest them as new leaves (item count balloons).
+                if rel.startswith("manifests/parts/"):
+                    continue
+                if p.name in skip_manifest_names:
+                    continue
+                files.append(p)
     return files
 
 

@@ -187,3 +187,29 @@ def test_chunked_report_lists_part_items(vault: Path):
     assert "captures/c00.bin" in html
     assert "captures/c19.bin" in html
 
+
+def test_reseal_skips_stale_part_files(vault: Path):
+    """Re-seal must not ingest prior manifests/parts leaves into the new seal."""
+    from flipper69.seal import seal_op
+    from flipper69.sync import resolve_manifest_items
+    from flipper69.vault import load_json
+
+    path = apply_template(
+        "badge-lab",
+        label="reseal-parts",
+        ops_root=vault,
+        acknowledge_auth=True,
+    )
+    (path / "captures").mkdir(exist_ok=True)
+    for i in range(20):
+        (path / "captures" / f"c{i:02d}.bin").write_bytes(b"payload-%d" % i)
+    first = seal_op(path, merkle=True, chunk_size=5)
+    assert first["chunked"] is True
+    first_count = first["items"]
+    second = seal_op(path, merkle=True, chunk_size=5)
+    assert second["items"] == first_count
+    man = load_json(path / "CASEFILE-MANIFEST.json")
+    assert isinstance(man, dict)
+    resolved = resolve_manifest_items(path, man)
+    assert not any(str(i.get("path", "")).startswith("manifests/parts/") for i in resolved)
+
