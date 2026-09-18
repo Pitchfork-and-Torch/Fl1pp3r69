@@ -342,3 +342,27 @@ def test_pack_redact_omits_checkpoint(vault: Path):
     assert "OPERATION.json" in names
     assert "REDACT.txt" in names
 
+
+
+def test_pack_redact_omits_desktop_receipts(vault: Path):
+    """Share-safe packs must omit DESKTOP-RECEIPTS.jsonl sync receipts."""
+    from flipper69.pack import pack_op
+    import zipfile
+
+    path = apply_template(
+        "badge-lab",
+        label="redact-desktop-receipts",
+        ops_root=vault,
+        acknowledge_auth=True,
+    )
+    (path / "DESKTOP-RECEIPTS.jsonl").write_text(
+        '{"ts":"2026-01-01T00:00:00Z","event":"sd_import","data":{"source":"/media/SECRET_SD"}}\n',
+        encoding="utf-8",
+    )
+    out = vault / "redact-desktop-receipts.f69pack.zip"
+    pack_op(path, out, redact=True)
+    with zipfile.ZipFile(out) as zf:
+        names = [n.split("/", 1)[-1] for n in zf.namelist()]
+    assert "DESKTOP-RECEIPTS.jsonl" not in names
+    assert "OPERATION.json" in names
+    assert "REDACT.txt" in names
