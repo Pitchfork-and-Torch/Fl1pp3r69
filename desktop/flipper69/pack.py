@@ -12,7 +12,8 @@ from flipper69.vault import read_manifest, read_operation
 
 
 REDACT_SKIP_NAMES = {"notes.txt"}
-# v4 field leaves live under artifacts/<domain>/; share-safe must omit them too.
+# v4 field leaves live under artifacts/<domain>/; claim receipts under claims/.
+# Share-safe packs must omit raw field leaves and claim receipts.
 REDACT_SKIP_PREFIX = ("captures/", "artifacts/")
 
 
@@ -32,6 +33,9 @@ def pack_op(
         rel = path.relative_to(op_dir).as_posix()
         if redact:
             if path.name in REDACT_SKIP_NAMES:
+                continue
+            # Claim receipts are operational; omit the whole claims/ tree when share-safe.
+            if rel.startswith("claims/"):
                 continue
             if rel.startswith(REDACT_SKIP_PREFIX) and not rel.endswith(".meta.json"):
                 # share-safe: keep only meta sidecars from captures/ and artifacts/
@@ -59,7 +63,7 @@ def pack_op(
             )
             zf.writestr(
                 f"{op_dir.name}/REDACT.txt",
-                "Share-safe pack: notes and raw captures/artifacts omitted; hashes preserved where present.\n",
+                "Share-safe pack: notes, claim receipts, and raw captures/artifacts omitted; hashes preserved where present.\n",
             )
         # root hash of zip contents listing
         listing = "\n".join(sorted(r for r, _ in files))

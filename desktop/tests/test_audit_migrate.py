@@ -252,6 +252,9 @@ def test_pack_redact_omits_artifacts(vault: Path, tmp_path: Path):
     (art / "raw.sub").write_bytes(b"ARTIFACT_SECRET")
     (art / "raw.sub.meta.json").write_text('{"ok": true}\n', encoding="utf-8")
     (path / "notes.txt").write_text("secret notes\n", encoding="utf-8")
+    claims = path / "claims"
+    claims.mkdir(parents=True, exist_ok=True)
+    (claims / "receipt.json").write_text('{"claim":"SECRET_CLAIM"}\n', encoding="utf-8")
 
     out = tmp_path / "share.zip"
     pack_op(path, out, redact=True)
@@ -260,3 +263,4 @@ def test_pack_redact_omits_artifacts(vault: Path, tmp_path: Path):
     assert not any(n.endswith("raw.sub") and "artifacts/" in n for n in names)
     assert any(n.endswith("raw.sub.meta.json") for n in names)
     assert not any(n.endswith("notes.txt") for n in names)
+    assert not any("/claims/" in n or n.endswith("receipt.json") for n in names)
