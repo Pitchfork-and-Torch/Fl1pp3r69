@@ -1,0 +1,225 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" width="1600" height="900">
+  <defs>
+    <linearGradient id="bgGrad" x1="0" y1="0" x2="1600" y2="900" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#030305"/>
+      <stop offset="55%" stop-color="#08080c"/>
+      <stop offset="100%" stop-color="#0f0a0a"/>
+    </linearGradient>
+    <radialGradient id="vignette" cx="50%" cy="45%" r="65%">
+      <stop offset="0%" stop-color="#000" stop-opacity="0"/>
+      <stop offset="100%" stop-color="#000" stop-opacity="0.75"/>
+    </radialGradient>
+    <linearGradient id="greenGlow" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#2dff0a"/>
+      <stop offset="100%" stop-color="#7dff6a"/>
+    </linearGradient>
+    <linearGradient id="redGlow" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#ff2244"/>
+      <stop offset="100%" stop-color="#c41e1e"/>
+    </linearGradient>
+    <linearGradient id="cardGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#141418"/>
+      <stop offset="100%" stop-color="#0a0a0d"/>
+    </linearGradient>
+    <filter id="glowG"><feGaussianBlur stdDeviation="4"/><feMerge><feMergeNode/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+    <filter id="glowC"><feGaussianBlur stdDeviation="3"/><feMerge><feMergeNode/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+    <filter id="glowR"><feGaussianBlur stdDeviation="4"/><feMerge><feMergeNode/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+    <pattern id="scan" width="4" height="4" patternUnits="userSpaceOnUse"><rect width="4" height="1" fill="#fff" opacity="0.025"/></pattern>
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse"><path d="M40 0L0 0 0 40" fill="none" stroke="#fff" stroke-width="0.4" opacity="0.04"/></pattern>
+    <clipPath id="clipCard"><rect width="460" height="220" rx="10"/></clipPath>
+    <clipPath id="clipInner"><rect width="404" height="64" rx="6"/></clipPath>
+    <clipPath id="clipFlow"><rect width="1440" height="80" rx="8"/></clipPath>
+  </defs>
+
+  <rect width="1600" height="900" fill="url(#bgGrad)"/>
+  <rect width="1600" height="900" fill="url(#grid)"/>
+  <rect width="1600" height="900" fill="url(#scan)"/>
+  <rect width="1600" height="900" fill="url(#vignette)"/>
+
+  <g stroke="#c41e1e" stroke-width="2" fill="none" opacity="0.85">
+    <path d="M48 48H120V56H56V120H48Z"/>
+    <path d="M1552 48H1480V56H1544V120H1552Z"/>
+    <path d="M48 852H120V844H56V780H48Z"/>
+    <path d="M1552 852H1480V844H1544V780H1552Z"/>
+  </g>
+  <rect x="60" y="60" width="1480" height="3" fill="#c41e1e" opacity="0.7"/>
+
+  <!-- Header -->
+  <text x="800" y="112" text-anchor="middle" font-family="Arial Black,Arial,sans-serif" font-size="58" font-weight="900" letter-spacing="3" fill="url(#greenGlow)" filter="url(#glowG)">FL1PP3R<tspan fill="#fff">6</tspan><tspan fill="url(#redGlow)" filter="url(#glowR)">9</tspan></text>
+  <text x="800" y="144" text-anchor="middle" font-family="Segoe UI,Arial,sans-serif" font-size="18" fill="#9a9a9a" font-style="italic">The dolphin grew teeth.</text>
+  <text x="800" y="170" text-anchor="middle" font-family="Consolas,monospace" font-size="13" fill="#ffb000" letter-spacing="2">UNCLASSIFIED // FIELD RESEARCH ONLY</text>
+
+  <!-- Mascot -->
+  <g transform="translate(800,248)" opacity="0.9">
+    <path d="M-8,-36L20,-32L34,-16L28,2L10,6L-4,0Z" fill="#0a0a0c" stroke="#00d4ff" stroke-width="1.5" filter="url(#glowC)"/>
+    <circle cx="16" cy="-18" r="4.5" fill="#c41e1e" filter="url(#glowR)"/>
+    <line x1="-70" y1="-18" x2="10" y2="-18" stroke="#c41e1e" stroke-width="1.2" opacity="0.8"/>
+    <path d="M28,2L42,16L54,34L64,52L70,70L66,78L56,70L46,52L36,34L24,16Z" fill="#0a0a0c" stroke="#00d4ff" stroke-width="1.1"/>
+  </g>
+
+  <!-- Pipeline -->
+  <text x="800" y="200" text-anchor="middle" font-family="Consolas,monospace" font-size="10" fill="#666" letter-spacing="3">OPERATION PIPELINE</text>
+  <g transform="translate(130,210)">
+    <rect width="1340" height="54" rx="8" fill="#0c0c10" stroke="#1e1e24"/>
+    <line x1="70" y1="27" x2="1270" y2="27" stroke="#222" stroke-width="2"/>
+    <line x1="70" y1="27" x2="1270" y2="27" stroke="#39ff14" stroke-width="1.5" opacity="0.2" stroke-dasharray="5 8"/>
+    <g font-family="Consolas,monospace" text-anchor="middle">
+      <g transform="translate(70,27)"><circle r="13" fill="#111" stroke="#39ff14" stroke-width="2"/><text y="4" fill="#39ff14" font-size="9">IN</text><text y="30" fill="#888" font-size="9">INTAKE</text></g>
+      <g transform="translate(260,27)"><circle r="13" fill="#111" stroke="#39ff14" stroke-width="2"/><text y="4" fill="#39ff14" font-size="8">OP</text><text y="30" fill="#888" font-size="9">OP_PREP</text></g>
+      <g transform="translate(450,27)"><circle r="15" fill="#1a1a1a" stroke="#00d4ff" stroke-width="2.5" filter="url(#glowC)"/><text y="4" fill="#00d4ff" font-size="9">PR</text><text y="30" fill="#00d4ff" font-size="9">PROBE</text></g>
+      <g transform="translate(640,27)"><circle r="13" fill="#111" stroke="#ffb000" stroke-width="2"/><text y="4" fill="#ffb000" font-size="9">CP</text><text y="30" fill="#888" font-size="9">CAPTURE</text></g>
+      <g transform="translate(830,27)"><circle r="13" fill="#111" stroke="#39ff14" stroke-width="2"/><text y="4" fill="#39ff14" font-size="8">VF</text><text y="30" fill="#888" font-size="9">VERIFY</text></g>
+      <g transform="translate(1020,27)"><circle r="13" fill="#111" stroke="#c41e1e" stroke-width="2"/><text y="4" fill="#c41e1e" font-size="8">EX</text><text y="30" fill="#888" font-size="9">EXFIL</text></g>
+      <g transform="translate(1210,27)"><circle r="13" fill="#111" stroke="#666" stroke-width="2"/><text y="4" fill="#aaa" font-size="8">CL</text><text y="30" fill="#888" font-size="9">CLOSE</text></g>
+    </g>
+  </g>
+
+  <!-- Flow strip -->
+  <g transform="translate(80,282)" clip-path="url(#clipFlow)">
+    <rect width="1440" height="80" rx="8" fill="#08080b" stroke="#1a1a20"/>
+    <rect x="20" y="18" width="108" height="44" rx="6" fill="#111" stroke="#00d4ff" stroke-width="1.5"/>
+    <text x="74" y="46" text-anchor="middle" font-family="Consolas,monospace" font-size="12" fill="#00d4ff">FLIPPER</text>
+    <polygon points="142,36 152,40 142,44" fill="#39ff14"/>
+    <rect x="162" y="18" width="248" height="44" rx="6" fill="#111" stroke="#39ff14" stroke-width="1.5"/>
+    <text x="286" y="38" text-anchor="middle" font-family="Consolas,monospace" font-size="10" fill="#39ff14">/ext/flipper69/operations/</text>
+    <text x="286" y="54" text-anchor="middle" font-family="Consolas,monospace" font-size="9" fill="#666">manifest + timeline</text>
+    <polygon points="424,36 434,40 424,44" fill="#c41e1e"/>
+    <line x1="442" y1="40" x2="1020" y2="40" stroke="#c41e1e" stroke-width="1.5" stroke-dasharray="7 5" opacity="0.55"/>
+    <text x="730" y="32" text-anchor="middle" font-family="Consolas,monospace" font-size="9" fill="#c41e1e">USB SERIAL EXFIL</text>
+    <polygon points="1038,36 1048,40 1038,44" fill="#ffb000"/>
+    <rect x="1058" y="18" width="248" height="44" rx="6" fill="#111" stroke="#ffb000" stroke-width="1.5"/>
+    <text x="1182" y="38" text-anchor="middle" font-family="Consolas,monospace" font-size="10" fill="#ffb000">.flipper69/ops/</text>
+    <text x="1182" y="54" text-anchor="middle" font-family="Consolas,monospace" font-size="9" fill="#666">desktop vault</text>
+    <rect x="1320" y="24" width="100" height="32" rx="4" fill="#1a0a0a" stroke="#c41e1e"/>
+    <text x="1370" y="45" text-anchor="middle" font-family="Consolas,monospace" font-size="9" fill="#c41e1e">SHA-256 OK</text>
+  </g>
+
+  <!-- Cards -->
+  <g transform="translate(80,368)">
+
+    <!-- 01 CASEFILE -->
+    <g transform="translate(0,0)" clip-path="url(#clipCard)">
+      <rect width="460" height="220" rx="10" fill="url(#cardGrad)" stroke="#c41e1e" stroke-width="2"/>
+      <rect width="6" height="220" rx="3" fill="#c41e1e"/>
+      <text x="24" y="32" font-family="Consolas,monospace" font-size="12" fill="#c41e1e">01 // HUB</text>
+      <text x="24" y="62" font-family="Segoe UI,Arial,sans-serif" font-size="24" font-weight="700" fill="#fff">CASEFILE Ops</text>
+      <text x="24" y="88" font-family="Segoe UI,Arial,sans-serif" font-size="13" fill="#999">
+        <tspan x="24" dy="0">Numbered command hub.</tspan>
+        <tspan x="24" dy="18">Every capture lives inside</tspan>
+        <tspan x="24" dy="18">a staged operation.</tspan>
+      </text>
+      <g transform="translate(24,148)" clip-path="url(#clipInner)">
+        <rect width="404" height="64" rx="6" fill="#0a0a0c" stroke="#222"/>
+        <text x="14" y="22" font-family="Consolas,monospace" font-size="10" fill="#39ff14">
+          <tspan x="14" dy="0">[1] NEW OP   [3] RUN PHASE</tspan>
+          <tspan x="14" dy="16">[5] EXFIL   panic wipe   resume</tspan>
+        </text>
+      </g>
+    </g>
+
+    <!-- 02 SHA-256 -->
+    <g transform="translate(490,0)" clip-path="url(#clipCard)">
+      <rect width="460" height="220" rx="10" fill="url(#cardGrad)" stroke="#39ff14" stroke-width="2"/>
+      <rect width="6" height="220" rx="3" fill="#39ff14"/>
+      <text x="24" y="32" font-family="Consolas,monospace" font-size="12" fill="#39ff14">02 // INTEGRITY</text>
+      <text x="24" y="62" font-family="Segoe UI,Arial,sans-serif" font-size="24" font-weight="700" fill="#fff">SHA-256 Chain</text>
+      <text x="24" y="88" font-family="Segoe UI,Arial,sans-serif" font-size="13" fill="#999">
+        <tspan x="24" dy="0">Hash every artifact before</tspan>
+        <tspan x="24" dy="18">exfil. On-device crypttool.</tspan>
+        <tspan x="24" dy="18">Nothing leaves without a receipt.</tspan>
+      </text>
+      <g transform="translate(24,148)" clip-path="url(#clipInner)">
+        <rect width="404" height="64" rx="6" fill="#0a0a0c" stroke="#222"/>
+        <text x="14" y="22" font-family="Consolas,monospace" font-size="10" fill="#ffb000">
+          <tspan x="14" dy="0">CASEFILE-MANIFEST.json</tspan>
+          <tspan x="14" dy="16" fill="#39ff14">f971cca... verified</tspan>
+        </text>
+      </g>
+    </g>
+
+    <!-- 03 DEWDROP -->
+    <g transform="translate(980,0)" clip-path="url(#clipCard)">
+      <rect width="460" height="220" rx="10" fill="url(#cardGrad)" stroke="#00d4ff" stroke-width="2"/>
+      <rect width="6" height="220" rx="3" fill="#00d4ff"/>
+      <text x="24" y="32" font-family="Consolas,monospace" font-size="12" fill="#00d4ff">03 // NFC</text>
+      <text x="24" y="62" font-family="Segoe UI,Arial,sans-serif" font-size="24" font-weight="700" fill="#fff">DEWDROP</text>
+      <text x="24" y="88" font-family="Segoe UI,Arial,sans-serif" font-size="13" fill="#999">
+        <tspan x="24" dy="0">Read, write, emulate owned</tspan>
+        <tspan x="24" dy="18">tags. .meta.json sidecars on</tspan>
+        <tspan x="24" dy="18">every capture.</tspan>
+      </text>
+      <g transform="translate(24,148)" clip-path="url(#clipInner)">
+        <rect width="404" height="64" rx="6" fill="#0a0a0c" stroke="#222"/>
+        <text x="14" y="22" font-family="Consolas,monospace" font-size="10" fill="#00d4ff">
+          <tspan x="14" dy="0">NTAG / Ultralight / Classic</tspan>
+          <tspan x="14" dy="16" fill="#555">read - write blank - emulate</tspan>
+        </text>
+      </g>
+    </g>
+
+    <!-- 04 Momentum -->
+    <g transform="translate(0,240)" clip-path="url(#clipCard)">
+      <rect width="460" height="220" rx="10" fill="url(#cardGrad)" stroke="#ffb000" stroke-width="2"/>
+      <rect width="6" height="220" rx="3" fill="#ffb000"/>
+      <text x="24" y="32" font-family="Consolas,monospace" font-size="12" fill="#ffb000">04 // BASE</text>
+      <text x="24" y="62" font-family="Segoe UI,Arial,sans-serif" font-size="24" font-weight="700" fill="#fff">Momentum Fork</text>
+      <text x="24" y="88" font-family="Segoe UI,Arial,sans-serif" font-size="13" fill="#999">
+        <tspan x="24" dy="0">Unleashed protocol depth plus</tspan>
+        <tspan x="24" dy="18">polished UI. fbt build pipeline.</tspan>
+        <tspan x="24" dy="18">Ethics guardrails baked in.</tspan>
+      </text>
+      <g transform="translate(24,148)" clip-path="url(#clipInner)">
+        <rect width="404" height="64" rx="6" fill="#0a0a0c" stroke="#222"/>
+        <text x="14" y="22" font-family="Consolas,monospace" font-size="10" fill="#ffb000">
+          <tspan x="14" dy="0">API 87.1 / 4 FAPs / Momentum dev</tspan>
+          <tspan x="14" dy="16" fill="#555">no jamming / no TX bypass</tspan>
+        </text>
+      </g>
+    </g>
+
+    <!-- 05 DAMP_CROWD -->
+    <g transform="translate(490,240)" clip-path="url(#clipCard)">
+      <rect width="460" height="220" rx="10" fill="url(#cardGrad)" stroke="#7b5cff" stroke-width="2"/>
+      <rect width="6" height="220" rx="3" fill="#7b5cff"/>
+      <text x="24" y="32" font-family="Consolas,monospace" font-size="12" fill="#7b5cff">05 // RF</text>
+      <text x="24" y="62" font-family="Segoe UI,Arial,sans-serif" font-size="24" font-weight="700" fill="#fff">DAMP_CROWD</text>
+      <text x="24" y="88" font-family="Segoe UI,Arial,sans-serif" font-size="13" fill="#999">
+        <tspan x="24" dy="0">Sub-GHz capture sidecars inside</tspan>
+        <tspan x="24" dy="18">ops. Rolling-code flags incoming.</tspan>
+        <tspan x="24" dy="18">.sub + .meta.json per capture.</tspan>
+      </text>
+      <g transform="translate(24,148)" clip-path="url(#clipInner)">
+        <rect width="404" height="64" rx="6" fill="#0a0a0c" stroke="#222"/>
+        <text x="14" y="22" font-family="Consolas,monospace" font-size="10" fill="#7b5cff">
+          <tspan x="14" dy="0">probe_subghz.fap</tspan>
+          <tspan x="14" dy="16" fill="#555">sync: flipper69-sync.ps1</tspan>
+        </text>
+      </g>
+    </g>
+
+    <!-- 06 Ethics -->
+    <g transform="translate(980,240)" clip-path="url(#clipCard)">
+      <rect width="460" height="220" rx="10" fill="url(#cardGrad)" stroke="#c41e1e" stroke-width="2" filter="url(#glowR)"/>
+      <rect width="6" height="220" rx="3" fill="#c41e1e"/>
+      <text x="24" y="32" font-family="Consolas,monospace" font-size="12" fill="#c41e1e">06 // GUARDRAILS</text>
+      <text x="24" y="62" font-family="Segoe UI,Arial,sans-serif" font-size="24" font-weight="700" fill="#fff">Ethics by Design</text>
+      <text x="24" y="88" font-family="Segoe UI,Arial,sans-serif" font-size="13" fill="#999">
+        <tspan x="24" dy="0">Field captures and metadata only.</tspan>
+        <tspan x="24" dy="18">AUTHORIZED gate for replay/inject.</tspan>
+        <tspan x="24" dy="18">Panic wipe clears ops, not FW.</tspan>
+      </text>
+      <g transform="translate(24,148)" clip-path="url(#clipInner)">
+        <rect width="404" height="64" rx="6" fill="#1a0808" stroke="#3a1010"/>
+        <text x="14" y="22" font-family="Consolas,monospace" font-size="10" fill="#c41e1e">
+          <tspan x="14" dy="0">owned hardware / regional TX</tspan>
+          <tspan x="14" dy="16" fill="#666">MIT / v1.0.0-alpha / open source</tspan>
+        </text>
+      </g>
+    </g>
+  </g>
+
+  <!-- Footer -->
+  <rect x="80" y="848" width="1440" height="2" fill="#c41e1e" opacity="0.4"/>
+  <text x="800" y="876" text-anchor="middle" font-family="Consolas,monospace" font-size="16" font-weight="700" fill="#fff">github.com/Pitchfork-and-Torch/Fl1pp3r69</text>
+  <text x="800" y="896" text-anchor="middle" font-family="Segoe UI,Arial,sans-serif" font-size="11" fill="#555">Manifest-driven field ops - chain-of-custody pocket to desktop</text>
+</svg>
