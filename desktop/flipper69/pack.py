@@ -11,10 +11,10 @@ from flipper69.sync import resolve_manifest_items
 from flipper69.vault import read_manifest, read_operation
 
 
-REDACT_SKIP_NAMES = {"notes.txt", "TIMELINE.jsonl", "ROE.json"}
+REDACT_SKIP_NAMES = {"notes.txt", "TIMELINE.jsonl", "ROE.json", "CHECKPOINT.json"}
 # v4 field leaves live under artifacts/<domain>/; claim receipts under claims/.
 # Share-safe packs must omit raw field leaves, claim receipts, the event log,
-# BadUSB/lab scripts, and ROE scope notes.
+# BadUSB/lab scripts, ROE scope notes, and live CHECKPOINT session state.
 REDACT_SKIP_PREFIX = ("captures/", "artifacts/", "scripts/")
 
 
@@ -64,7 +64,7 @@ def pack_op(
             )
             zf.writestr(
                 f"{op_dir.name}/REDACT.txt",
-                "Share-safe pack: notes, timeline, ROE, scripts, claim receipts, and raw captures/artifacts omitted; hashes preserved where present.\n",
+                "Share-safe pack: notes, timeline, ROE, checkpoint, scripts, claim receipts, and raw captures/artifacts omitted; hashes preserved where present.\n",
             )
         # root hash of zip contents listing
         listing = "\n".join(sorted(r for r, _ in files))

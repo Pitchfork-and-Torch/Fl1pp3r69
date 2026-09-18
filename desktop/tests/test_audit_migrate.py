@@ -318,3 +318,27 @@ def test_pack_redact_omits_scripts_and_roe(vault: Path):
     assert "OPERATION.json" in names
     assert "REDACT.txt" in names
 
+
+def test_pack_redact_omits_checkpoint(vault: Path):
+    """Share-safe packs must omit CHECKPOINT.json session state."""
+    from flipper69.pack import pack_op
+    import zipfile
+
+    path = apply_template(
+        "badge-lab",
+        label="redact-checkpoint",
+        ops_root=vault,
+        acknowledge_auth=True,
+    )
+    (path / "CHECKPOINT.json").write_text(
+        '{"phase":"capture","reason":"SECRET_SESSION","session":9}\n',
+        encoding="utf-8",
+    )
+    out = vault / "redact-checkpoint.f69pack.zip"
+    pack_op(path, out, redact=True)
+    with zipfile.ZipFile(out) as zf:
+        names = [n.split("/", 1)[-1] for n in zf.namelist()]
+    assert "CHECKPOINT.json" not in names
+    assert "OPERATION.json" in names
+    assert "REDACT.txt" in names
+
