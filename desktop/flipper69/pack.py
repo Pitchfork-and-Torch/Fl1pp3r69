@@ -12,7 +12,8 @@ from flipper69.vault import read_manifest, read_operation
 
 
 REDACT_SKIP_NAMES = {"notes.txt"}
-REDACT_SKIP_PREFIX = ("captures/",)
+# v4 field leaves live under artifacts/<domain>/; share-safe must omit them too.
+REDACT_SKIP_PREFIX = ("captures/", "artifacts/")
 
 
 def pack_op(
@@ -33,7 +34,7 @@ def pack_op(
             if path.name in REDACT_SKIP_NAMES:
                 continue
             if rel.startswith(REDACT_SKIP_PREFIX) and not rel.endswith(".meta.json"):
-                # share-safe: keep only meta sidecars from captures
+                # share-safe: keep only meta sidecars from captures/ and artifacts/
                 continue
             if rel == "OPERATION.json":
                 # write redacted operation later
@@ -58,7 +59,7 @@ def pack_op(
             )
             zf.writestr(
                 f"{op_dir.name}/REDACT.txt",
-                "Share-safe pack: notes and raw captures omitted; hashes preserved where present.\n",
+                "Share-safe pack: notes and raw captures/artifacts omitted; hashes preserved where present.\n",
             )
         # root hash of zip contents listing
         listing = "\n".join(sorted(r for r, _ in files))

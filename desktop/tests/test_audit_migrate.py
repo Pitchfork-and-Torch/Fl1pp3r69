@@ -232,3 +232,31 @@ def test_audit_flags_artifact_orphans(vault: Path):
     assert "artifacts/field/loose.bin" in report["orphans"]
     assert any("orphan field file" in w for w in report["warnings"])
 
+
+
+def test_pack_redact_omits_artifacts(vault: Path, tmp_path: Path):
+    """Share-safe pack must omit v4 artifacts/ raw leaves, not only captures/."""
+    import zipfile
+    from flipper69.pack import pack_op
+
+    path = apply_template(
+        "badge-lab",
+        label="pack-redact",
+        ops_root=vault,
+        acknowledge_auth=True,
+    )
+    (path / "captures").mkdir(exist_ok=True)
+    (path / "captures" / "legacy.sub").write_bytes(b"CAPTURE_SECRET")
+    art = path / "artifacts" / "field"
+    art.mkdir(parents=True, exist_ok=True)
+    (art / "raw.sub").write_bytes(b"ARTIFACT_SECRET")
+    (art / "raw.sub.meta.json").write_text('{"ok": true}\n', encoding="utf-8")
+    (path / "notes.txt").write_text("secret notes\n", encoding="utf-8")
+
+    out = tmp_path / "share.zip"
+    pack_op(path, out, redact=True)
+    names = zipfile.ZipFile(out).namelist()
+    assert not any(n.endswith("legacy.sub") for n in names)
+    assert not any(n.endswith("raw.sub") and "artifacts/" in n for n in names)
+    assert any(n.endswith("raw.sub.meta.json") for n in names)
+    assert not any(n.endswith("notes.txt") for n in names)
