@@ -104,7 +104,32 @@ def check_landing_honesty() -> None:
     need("landing/index.html", "no undocumented attack procedures")
     need("landing/index.html", 'href="#main"')
     need("landing/index.html", 'id="main"')
+    need("landing/index.html", 'class="skip-link"')
     need("landing/index.html", 'lang="en"')
+    need("landing/index.html", 'name="twitter:site" content="@suddenlyjon"')
+    need("landing/index.html", 'name="twitter:creator" content="@suddenlyjon"')
+    need("landing/index.html", 'property="og:image:alt"')
+    need("landing/index.html", 'name="twitter:image:alt"')
+    need("landing/index.html", 'href="/apple-touch-icon.png')
+    need("landing/index.html", 'sizes="180x180"')
+    for token in re.findall(r"\?v=(\d+\.\d+\.\d+)", landing):
+        if token != PRODUCT:
+            FAILS.append(
+                f"landing cache-bust ?v={token} impersonates a release; product is {PRODUCT}"
+            )
+    apple = ROOT / "landing" / "apple-touch-icon.png"
+    asset_apple = ROOT / "landing" / "assets" / "apple-touch-icon.png"
+    try:
+        if (
+            not apple.is_file()
+            or not apple.read_bytes().startswith(b"\x89PNG\r\n\x1a\n")
+            or image_size(apple) != (180, 180)
+        ):
+            FAILS.append("landing/apple-touch-icon.png is not a real 180x180 PNG")
+        if not asset_apple.is_file() or image_size(asset_apple) != (180, 180):
+            FAILS.append("landing/assets/apple-touch-icon.png is not a 180x180 PNG")
+    except ValueError as exc:
+        FAILS.append(str(exc))
     need("landing/index.html", 'role="tablist"')
     need("landing/index.html", 'src="https://hits.jonbailey.xyz/c.js"')
     need("landing/index.html", 'data-site="fl1pp3r69"')
