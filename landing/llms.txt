@@ -5,7 +5,7 @@ Fl1pp3r69 (https://fl1pp3r69.jonbailey.xyz) is an open-source Flipper Zero field
 
 **Authorized use:** use only on hardware and systems you own or have explicit permission to test. Field captures and metadata only. No exploit PoCs. No undocumented attack procedures. No jamming. No region bypass.
 
-Last reviewed: 2026-09-17
+Last reviewed: 2026-09-22
 Product version: 4.0.0 (ARGUS VEIL) - same number on GitHub release v4.0.0, device FAPs, desktop toolkit, landing JSON-LD, and this file. Historical example ops under examples/ may still say 3.0.0 (VEIL LEDGER demos).
 
 ## Citation-ready one-liner
@@ -81,4 +81,4 @@ Visits: discreet rate-limited count via hits.jonbailey.xyz (no cookies, no raw I
 ## Support
 Issues: https://github.com/Pitchfork-and-Torch/Fl1pp3r69/issues
 
-# refreshed: 2026-09-17
+# refreshed: 2026-09-22
